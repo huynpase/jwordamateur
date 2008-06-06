@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +11,19 @@ namespace JWord
     public partial class DataForm : Form
     {
         private Word currentWord;
+        private Word SelectWord
+        {
+            set
+            {
+                currentWord = value;
+                FillWordIntoTextBox(this.SelectWord);
+                this.btnDelete.Enabled = (this.currentWord == null) ? false : true;
+            }
+            get
+            {
+                return currentWord;
+            }
+        }
         public MainForm parent;
         public DataForm()
         {
@@ -41,14 +54,18 @@ namespace JWord
                 if (this.lviWordList.SelectedItems[0] != null &&
                     this.lviWordList.SelectedItems[0].Tag is Word)
                 {
-                    this.currentWord = this.lviWordList.SelectedItems[0].Tag as Word;
+                    if (this.IsDataChanged() &&
+                        MessageBox.Show("Nội dung từ đã thay đổi, bạn có muốn cập nhật không?","JWord", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        Database db = new Database();
+                        db.DeleteWord(this.SelectWord);
+                        this.SelectWord = null;
+                    }
+                    else
+                    {
+                        this.SelectWord = this.lviWordList.SelectedItems[0].Tag as Word;
+                    }
                 }
-            }
-
-            // View word
-            if (this.currentWord != null)
-            {
-                FillWordIntoTextBox(this.currentWord);
             }
         }
 
@@ -75,17 +92,39 @@ namespace JWord
 
         private void FillWordIntoTextBox(Word word)
         {
-            this.txtKana.Text = word.Kana;
-            this.txtKanji.Text = word.Kanji;
-            this.txtVietnamese.Text = word.Meaning;
+            if (word != null)
+            {
+                this.txtKana.Text = word.Kana;
+                this.txtKanji.Text = word.Kanji;
+                this.txtVietnamese.Text = word.Meaning;
+            }
+            else
+            {
+                this.txtKana.Text = "";
+                this.txtKanji.Text = "";
+                this.txtVietnamese.Text = "";
+            }
         }
 
         private void ClearTextbox()
         {
-            this.currentWord = null;
+            this.SelectWord = null;
             this.txtKana.Text = "";
             this.txtKanji.Text = "";
             this.txtVietnamese.Text = "";
+        }
+
+        private bool IsDataChanged()
+        {
+            if (this.SelectWord == null)
+                return false;
+
+            if (this.SelectWord.Kanji != this.txtKanji.Text ||
+                this.SelectWord.Kana != this.txtKana.Text ||
+                this.SelectWord.Meaning != this.txtVietnamese.Text)
+                return true;
+
+            return false;
         }
 
         private void FillWordsIntoListView(List<Word> words)
@@ -104,10 +143,19 @@ namespace JWord
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (this.currentWord != null)
+            if (this.SelectWord != null)
             {
                 Database db = new Database();
-                db.DeleteWord(currentWord);
+                if (db.DeleteWord(SelectWord) > 0)
+                {
+                    MessageBox.Show("Xóa thành công từ: " + 
+                        string.Format("{0}, {1}, {2}", SelectWord.Kanji, SelectWord.Kana, SelectWord.Meaning), 
+                        "JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ListViewItem lvi = GetListViewItemByWord(SelectWord);
+                    lviWordList.Items.Remove(lvi);
+                    this.SelectWord = null;
+                }
             }
         }
 
@@ -125,5 +173,60 @@ namespace JWord
         {
             RefreshData();
         }
+
+        private void txtKanji_TextChanged(object sender, EventArgs e)
+        {
+            this.btnUpdate.Enabled = this.IsDataChanged();
+        }
+
+        private void txtKana_TextChanged(object sender, EventArgs e)
+        {
+            this.btnUpdate.Enabled = this.IsDataChanged();
+        }
+
+        private void txtVietnamese_TextChanged(object sender, EventArgs e)
+        {
+            this.btnUpdate.Enabled = this.IsDataChanged();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Database db = new Database();
+            Word temp = new Word();
+            temp.Id = SelectWord.Id;
+            temp.Kanji = this.txtKanji.Text;
+            temp.Kana = this.txtKana.Text;
+            temp.Meaning = this.txtVietnamese.Text;
+
+            if (db.UpdateWord(temp) > 0)
+            {
+                ListViewItem lvi = this.GetListViewItemByWord(this.SelectWord);
+                this.SelectWord = temp;
+                lvi.Tag = temp;
+
+                lvi.SubItems[0].Text = "";
+                lvi.SubItems[1].Text = SelectWord.Kanji;
+                lvi.SubItems[2].Text = SelectWord.Kana;
+                lvi.SubItems[3].Text = SelectWord.Meaning;
+            }
+        }
+
+        private ListViewItem GetListViewItemByWord(Word word)
+        {
+            foreach (ListViewItem lvi in lviWordList.Items)
+            {
+                if (lvi.Tag == this.SelectWord)
+                {
+                    return lvi;
+                }
+            }
+            return null;
+        }
+
+        private void btnClearText_Click(object sender, EventArgs e)
+        {
+            this.SelectWord = null;
+        }
+
     }
 }

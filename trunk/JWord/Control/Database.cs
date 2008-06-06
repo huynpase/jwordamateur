@@ -78,13 +78,31 @@ namespace JWord
                 OleDbConnection cn = new OleDbConnection(ConnectionString);
                 cn.Open();
                 OleDbCommand cmd = new OleDbCommand("DeleteWord", cn);
+                cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
                 cmd.CommandType = CommandType.StoredProcedure;
-                return cmd.ExecuteNonQuery();
+                int ret = cmd.ExecuteNonQuery();
+                cn.Close();
+                return ret;
             }
             catch
             {
                 return 0;
             }
+        }
+
+        public int UpdateWord(Word word)
+        {
+            OleDbConnection cn = new OleDbConnection(ConnectionString);
+            cn.Open();
+            OleDbCommand cmd = new OleDbCommand("UpdateWord", cn);            
+            cmd.Parameters.Add(new OleDbParameter("@Kanji", word.Kanji));
+            cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
+            cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
+            cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
+            cmd.CommandType = CommandType.StoredProcedure;
+            int ret = cmd.ExecuteNonQuery();
+            cn.Close();
+            return ret;
         }
     }
 

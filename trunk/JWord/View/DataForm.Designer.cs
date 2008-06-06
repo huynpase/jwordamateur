@@ -45,13 +45,14 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rdoViewAll = new System.Windows.Forms.RadioButton();
-            this.rdoViewStudied = new System.Windows.Forms.RadioButton();
-            this.rdoViewUnStudied = new System.Windows.Forms.RadioButton();
-            this.btnSetUnstudied = new System.Windows.Forms.Button();
-            this.btnSetStudied = new System.Windows.Forms.Button();
-            this.btnDeleteAll = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.rdoViewUnStudied = new System.Windows.Forms.RadioButton();
+            this.rdoViewStudied = new System.Windows.Forms.RadioButton();
+            this.btnDeleteAll = new System.Windows.Forms.Button();
+            this.rdoViewAll = new System.Windows.Forms.RadioButton();
+            this.btnSetStudied = new System.Windows.Forms.Button();
+            this.btnSetUnstudied = new System.Windows.Forms.Button();
+            this.btnClearText = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,9 +68,6 @@
             this.columnHeader3});
             this.lviWordList.FullRowSelect = true;
             this.lviWordList.GridLines = true;
-            this.lviWordList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            ((System.Windows.Forms.ListViewItem)(resources.GetObject("lviWordList.Items")))});
-            this.lviWordList.MultiSelect = false;
             this.lviWordList.Name = "lviWordList";
             this.lviWordList.UseCompatibleStateImageBehavior = false;
             this.lviWordList.View = System.Windows.Forms.View.Details;
@@ -95,16 +93,19 @@
             // 
             resources.ApplyResources(this.txtKanji, "txtKanji");
             this.txtKanji.Name = "txtKanji";
+            this.txtKanji.TextChanged += new System.EventHandler(this.txtKanji_TextChanged);
             // 
             // txtVietnamese
             // 
             resources.ApplyResources(this.txtVietnamese, "txtVietnamese");
             this.txtVietnamese.Name = "txtVietnamese";
+            this.txtVietnamese.TextChanged += new System.EventHandler(this.txtVietnamese_TextChanged);
             // 
             // txtKana
             // 
             resources.ApplyResources(this.txtKana, "txtKana");
             this.txtKana.Name = "txtKana";
+            this.txtKana.TextChanged += new System.EventHandler(this.txtKana_TextChanged);
             // 
             // label1
             // 
@@ -132,6 +133,7 @@
             resources.ApplyResources(this.btnUpdate, "btnUpdate");
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -144,6 +146,7 @@
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.txtVietnamese);
+            this.groupBox1.Controls.Add(this.btnClearText);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.txtKanji);
             this.groupBox1.Controls.Add(this.btnUpdate);
@@ -168,19 +171,10 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
-            // rdoViewAll
+            // label4
             // 
-            resources.ApplyResources(this.rdoViewAll, "rdoViewAll");
-            this.rdoViewAll.Name = "rdoViewAll";
-            this.rdoViewAll.UseVisualStyleBackColor = true;
-            this.rdoViewAll.CheckedChanged += new System.EventHandler(this.rdoViewAll_CheckedChanged);
-            // 
-            // rdoViewStudied
-            // 
-            resources.ApplyResources(this.rdoViewStudied, "rdoViewStudied");
-            this.rdoViewStudied.Name = "rdoViewStudied";
-            this.rdoViewStudied.UseVisualStyleBackColor = true;
-            this.rdoViewStudied.CheckedChanged += new System.EventHandler(this.rdoViewStudied_CheckedChanged);
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
             // 
             // rdoViewUnStudied
             // 
@@ -191,17 +185,13 @@
             this.rdoViewUnStudied.UseVisualStyleBackColor = true;
             this.rdoViewUnStudied.CheckedChanged += new System.EventHandler(this.rdoViewUnStudied_CheckedChanged);
             // 
-            // btnSetUnstudied
+            // rdoViewStudied
             // 
-            resources.ApplyResources(this.btnSetUnstudied, "btnSetUnstudied");
-            this.btnSetUnstudied.Name = "btnSetUnstudied";
-            this.btnSetUnstudied.UseVisualStyleBackColor = true;
-            // 
-            // btnSetStudied
-            // 
-            resources.ApplyResources(this.btnSetStudied, "btnSetStudied");
-            this.btnSetStudied.Name = "btnSetStudied";
-            this.btnSetStudied.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.rdoViewStudied, "rdoViewStudied");
+            this.rdoViewStudied.Name = "rdoViewStudied";
+            this.rdoViewStudied.TabStop = true;
+            this.rdoViewStudied.UseVisualStyleBackColor = true;
+            this.rdoViewStudied.CheckedChanged += new System.EventHandler(this.rdoViewStudied_CheckedChanged);
             // 
             // btnDeleteAll
             // 
@@ -209,13 +199,36 @@
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // rdoViewAll
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.rdoViewAll, "rdoViewAll");
+            this.rdoViewAll.Name = "rdoViewAll";
+            this.rdoViewAll.TabStop = true;
+            this.rdoViewAll.UseVisualStyleBackColor = true;
+            this.rdoViewAll.CheckedChanged += new System.EventHandler(this.rdoViewAll_CheckedChanged);
+            // 
+            // btnSetStudied
+            // 
+            resources.ApplyResources(this.btnSetStudied, "btnSetStudied");
+            this.btnSetStudied.Name = "btnSetStudied";
+            this.btnSetStudied.UseVisualStyleBackColor = true;
+            // 
+            // btnSetUnstudied
+            // 
+            resources.ApplyResources(this.btnSetUnstudied, "btnSetUnstudied");
+            this.btnSetUnstudied.Name = "btnSetUnstudied";
+            this.btnSetUnstudied.UseVisualStyleBackColor = true;
+            // 
+            // btnClearText
+            // 
+            resources.ApplyResources(this.btnClearText, "btnClearText");
+            this.btnClearText.Name = "btnClearText";
+            this.btnClearText.UseVisualStyleBackColor = true;
+            this.btnClearText.Click += new System.EventHandler(this.btnClearText_Click);
             // 
             // DataForm
             // 
+            this.AcceptButton = this.btnAdd;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
@@ -258,6 +271,7 @@
         private System.Windows.Forms.Button btnSetStudied;
         private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnClearText;
 
     }
 }

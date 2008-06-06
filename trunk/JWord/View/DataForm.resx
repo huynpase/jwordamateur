@@ -167,31 +167,6 @@
   <data name="columnHeader3.Width" type="System.Int32, mscorlib">
     <value>220</value>
   </data>
-  <data name="lviWordList.Items" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj0yLjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkMAwAAAFFTeXN0
-        ZW0uRHJhd2luZywgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2Vu
-        PWIwM2Y1ZjdmMTFkNTBhM2EFAQAAACFTeXN0ZW0uV2luZG93cy5Gb3Jtcy5MaXN0Vmlld0l0ZW0LAAAA
-        BFRleHQKSW1hZ2VJbmRleAxTdWJJdGVtQ291bnQIU3ViSXRlbTEIU3ViSXRlbTIIU3ViSXRlbTMJQmFj
-        a0NvbG9yB0NoZWNrZWQERm9udAlGb3JlQ29sb3IXVXNlSXRlbVN0eWxlRm9yU3ViSXRlbXMBAAAEBAQE
-        AAQEAAgIMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAA
-        MVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAAMVN5c3Rl
-        bS5XaW5kb3dzLkZvcm1zLkxpc3RWaWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0CAAAAFFN5c3RlbS5EcmF3
-        aW5nLkNvbG9yAwAAAAETU3lzdGVtLkRyYXdpbmcuRm9udAMAAAAUU3lzdGVtLkRyYXdpbmcuQ29sb3ID
-        AAAAAQIAAAAGBAAAAAD/////BAAAAAkFAAAACQYAAAAJBwAAAAX4////FFN5c3RlbS5EcmF3aW5nLkNv
-        bG9yBAAAAARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoAAAAAAAAAABgAAQAA
-        CQkAAAAB9v////j///8KAAAAAAAAAAAaAAEAAQUFAAAAMVN5c3RlbS5XaW5kb3dzLkZvcm1zLkxpc3RW
-        aWV3SXRlbStMaXN0Vmlld1N1Ykl0ZW0EAAAABHRleHQEbmFtZQVzdHlsZQh1c2VyRGF0YQEBBAI+U3lz
-        dGVtLldpbmRvd3MuRm9ybXMuTGlzdFZpZXdJdGVtK0xpc3RWaWV3U3ViSXRlbStTdWJJdGVtU3R5bGUC
-        AAAAAgAAAAYLAAAAAzEyMwoKCgEGAAAABQAAAAYMAAAABTEyMzEzCgoKAQcAAAAFAAAABg0AAAAGMTIz
-        MTIzCgoKBQkAAAATU3lzdGVtLkRyYXdpbmcuRm9udAQAAAAETmFtZQRTaXplBVN0eWxlBFVuaXQBAAQE
-        CxhTeXN0ZW0uRHJhd2luZy5Gb250U3R5bGUDAAAAG1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5pdAMA
-        AAADAAAABg4AAAAUTWljcm9zb2Z0IFNhbnMgU2VyaWYAAARBBfH///8YU3lzdGVtLkRyYXdpbmcuRm9u
-        dFN0eWxlAQAAAAd2YWx1ZV9fAAgDAAAAAAAAAAXw////G1N5c3RlbS5EcmF3aW5nLkdyYXBoaWNzVW5p
-        dAEAAAAHdmFsdWVfXwAIAwAAAAMAAAAL
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lviWordList.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
@@ -200,7 +175,7 @@
     <value>572, 210</value>
   </data>
   <data name="lviWordList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;lviWordList.Name" xml:space="preserve">
     <value>lviWordList</value>
@@ -218,13 +193,13 @@
     <value>NoControl</value>
   </data>
   <data name="txtKanji.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 27</value>
+    <value>74, 27</value>
   </data>
   <data name="txtKanji.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
+    <value>214, 20</value>
   </data>
   <data name="txtKanji.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;txtKanji.Name" xml:space="preserve">
     <value>txtKanji</value>
@@ -236,19 +211,19 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtKanji.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txtVietnamese.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="txtVietnamese.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 85</value>
+    <value>74, 85</value>
   </data>
   <data name="txtVietnamese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
+    <value>214, 20</value>
   </data>
   <data name="txtVietnamese.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;txtVietnamese.Name" xml:space="preserve">
     <value>txtVietnamese</value>
@@ -266,10 +241,10 @@
     <value>Off</value>
   </data>
   <data name="txtKana.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 56</value>
+    <value>74, 56</value>
   </data>
   <data name="txtKana.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 20</value>
+    <value>214, 20</value>
   </data>
   <data name="txtKana.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -284,13 +259,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtKana.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 30</value>
+    <value>7, 30</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 13</value>
@@ -311,7 +286,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -320,7 +295,7 @@
     <value>On</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 88</value>
+    <value>7, 88</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
@@ -341,7 +316,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -350,7 +325,7 @@
     <value>On</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 59</value>
+    <value>7, 59</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 13</value>
@@ -371,16 +346,16 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 127</value>
+    <value>81, 130</value>
   </data>
   <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>65, 23</value>
   </data>
   <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnAdd.Text" xml:space="preserve">
     <value>&amp;Thêm Mới</value>
@@ -395,19 +370,19 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="btnUpdate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
   </data>
   <data name="btnUpdate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 127</value>
+    <value>152, 130</value>
   </data>
   <data name="btnUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>65, 23</value>
   </data>
   <data name="btnUpdate.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="btnUpdate.Text" xml:space="preserve">
     <value>&amp;Cập Nhật</value>
@@ -422,19 +397,19 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnDelete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
   </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>179, 127</value>
+    <value>223, 130</value>
   </data>
   <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>65, 23</value>
   </data>
   <data name="btnDelete.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="btnDelete.Text" xml:space="preserve">
     <value>&amp;Xóa</value>
@@ -449,16 +424,28 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.Name" xml:space="preserve">
+    <value>btnClearText</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 228</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 168</value>
+    <value>304, 168</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -485,10 +472,10 @@
     <value>On</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 117</value>
+    <value>10, 117</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 48</value>
+    <value>245, 48</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -515,13 +502,13 @@
     <value>On</value>
   </data>
   <data name="rdoViewUnStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 38</value>
+    <value>127, 38</value>
   </data>
   <data name="rdoViewUnStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 17</value>
   </data>
   <data name="rdoViewUnStudied.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="rdoViewUnStudied.Text" xml:space="preserve">
     <value>Hiển thị từ chưa học</value>
@@ -545,13 +532,13 @@
     <value>On</value>
   </data>
   <data name="rdoViewStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 61</value>
+    <value>127, 61</value>
   </data>
   <data name="rdoViewStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 17</value>
   </data>
   <data name="rdoViewStudied.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="rdoViewStudied.Text" xml:space="preserve">
     <value>Hiển thị từ đã học</value>
@@ -572,13 +559,13 @@
     <value>On</value>
   </data>
   <data name="btnDeleteAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 85</value>
+    <value>10, 85</value>
   </data>
   <data name="btnDeleteAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
   </data>
   <data name="btnDeleteAll.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>9</value>
   </data>
   <data name="btnDeleteAll.Text" xml:space="preserve">
     <value>Xóa</value>
@@ -599,13 +586,13 @@
     <value>True</value>
   </data>
   <data name="rdoViewAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 84</value>
+    <value>127, 84</value>
   </data>
   <data name="rdoViewAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 17</value>
   </data>
   <data name="rdoViewAll.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="rdoViewAll.Text" xml:space="preserve">
     <value>Hiển thị tất cả các từ</value>
@@ -626,13 +613,13 @@
     <value>On</value>
   </data>
   <data name="btnSetStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 56</value>
+    <value>10, 56</value>
   </data>
   <data name="btnSetStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
   </data>
   <data name="btnSetStudied.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>8</value>
   </data>
   <data name="btnSetStudied.Text" xml:space="preserve">
     <value>Đặt Đã học</value>
@@ -650,13 +637,13 @@
     <value>5</value>
   </data>
   <data name="btnSetUnstudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 27</value>
+    <value>10, 27</value>
   </data>
   <data name="btnSetUnstudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
   </data>
   <data name="btnSetUnstudied.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>7</value>
   </data>
   <data name="btnSetUnstudied.Text" xml:space="preserve">
     <value>Đặt Chưa học</value>
@@ -674,10 +661,10 @@
     <value>6</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>288, 228</value>
+    <value>322, 228</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 168</value>
+    <value>262, 168</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -696,6 +683,33 @@
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="btnClearText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>On</value>
+  </data>
+  <data name="btnClearText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 130</value>
+  </data>
+  <data name="btnClearText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 23</value>
+  </data>
+  <data name="btnClearText.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnClearText.Text" xml:space="preserve">
+    <value>Xóa Te&amp;xt</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.Name" xml:space="preserve">
+    <value>btnClearText</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btnClearText.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
