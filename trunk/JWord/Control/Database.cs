@@ -92,17 +92,80 @@ namespace JWord
 
         public int UpdateWord(Word word)
         {
+            try
+            {
+                OleDbConnection cn = new OleDbConnection(ConnectionString);
+                cn.Open();
+                OleDbCommand cmd = new OleDbCommand("UpdateWord", cn);
+                cmd.Parameters.Add(new OleDbParameter("@Kanji", word.Kanji));
+                cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
+                cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
+                cmd.Parameters.Add(new OleDbParameter("@Hide", word.IsStudied));
+                cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
+                cmd.CommandType = CommandType.StoredProcedure;
+                int ret = cmd.ExecuteNonQuery();
+                cn.Close();
+                return ret;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int InsertWord(Word word)
+        {
+            try
+            {
+                OleDbConnection cn = new OleDbConnection(ConnectionString);
+                cn.Open();
+                OleDbCommand cmd = new OleDbCommand("InsertWord", cn);
+                cmd.Parameters.Add(new OleDbParameter("@Kanji", word.Kanji));
+                cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
+                cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
+                cmd.Parameters.Add(new OleDbParameter("@Hide", word.IsStudied));
+                cmd.CommandType = CommandType.StoredProcedure;
+                int ret = cmd.ExecuteNonQuery();
+                cn.Close();
+                return ret;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public Word GetLastWord()
+        {
             OleDbConnection cn = new OleDbConnection(ConnectionString);
             cn.Open();
-            OleDbCommand cmd = new OleDbCommand("UpdateWord", cn);            
-            cmd.Parameters.Add(new OleDbParameter("@Kanji", word.Kanji));
-            cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
-            cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
-            cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
+            OleDbCommand cmd = new OleDbCommand("GetLastWord", cn);
             cmd.CommandType = CommandType.StoredProcedure;
-            int ret = cmd.ExecuteNonQuery();
+
+            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            int i = da.Fill(dt);
+            Word w = null;
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                
+                try
+                {
+                    w = new Word();
+                    w.Id = (int)dr["Id"];
+                    w.Kanji = (string)dr["Kanji"];
+                    w.Kana = (string)dr["Kana"];
+                    w.Meaning = (string)dr["Meaning"];
+                    w.IsStudied = (bool)dr["Hide"];
+                }
+                catch
+                {
+                }
+            }
             cn.Close();
-            return ret;
+            return w;
         }
     }
 

@@ -44,6 +44,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClearText = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rdoViewUnStudied = new System.Windows.Forms.RadioButton();
@@ -52,7 +53,6 @@
             this.rdoViewAll = new System.Windows.Forms.RadioButton();
             this.btnSetStudied = new System.Windows.Forms.Button();
             this.btnSetUnstudied = new System.Windows.Forms.Button();
-            this.btnClearText = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,7 @@
             this.lviWordList.Name = "lviWordList";
             this.lviWordList.UseCompatibleStateImageBehavior = false;
             this.lviWordList.View = System.Windows.Forms.View.Details;
+            this.lviWordList.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lviWordList_ItemChecked);
             this.lviWordList.SelectedIndexChanged += new System.EventHandler(this.lviWordList_SelectedIndexChanged);
             // 
             // columnHeader4
@@ -127,6 +128,7 @@
             resources.ApplyResources(this.btnAdd, "btnAdd");
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -157,6 +159,13 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // btnClearText
+            // 
+            resources.ApplyResources(this.btnClearText, "btnClearText");
+            this.btnClearText.Name = "btnClearText";
+            this.btnClearText.UseVisualStyleBackColor = true;
+            this.btnClearText.Click += new System.EventHandler(this.btnClearText_Click);
             // 
             // groupBox2
             // 
@@ -218,13 +227,6 @@
             resources.ApplyResources(this.btnSetUnstudied, "btnSetUnstudied");
             this.btnSetUnstudied.Name = "btnSetUnstudied";
             this.btnSetUnstudied.UseVisualStyleBackColor = true;
-            // 
-            // btnClearText
-            // 
-            resources.ApplyResources(this.btnClearText, "btnClearText");
-            this.btnClearText.Name = "btnClearText";
-            this.btnClearText.UseVisualStyleBackColor = true;
-            this.btnClearText.Click += new System.EventHandler(this.btnClearText_Click);
             // 
             // DataForm
             // 

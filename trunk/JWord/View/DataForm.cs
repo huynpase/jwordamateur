@@ -148,13 +148,15 @@ namespace JWord
                 Database db = new Database();
                 if (db.DeleteWord(SelectWord) > 0)
                 {
-                    MessageBox.Show("Xóa thành công từ: " + 
-                        string.Format("{0}, {1}, {2}", SelectWord.Kanji, SelectWord.Kana, SelectWord.Meaning), 
-                        "JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Xóa thành công từ: " + 
+                    //    string.Format("{0}, {1}, {2}", SelectWord.Kanji, SelectWord.Kana, SelectWord.Meaning), 
+                    //    "JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     ListViewItem lvi = GetListViewItemByWord(SelectWord);
                     lviWordList.Items.Remove(lvi);
                     this.SelectWord = null;
+
+                    RefreshToMainForm();
                 }
             }
         }
@@ -177,16 +179,19 @@ namespace JWord
         private void txtKanji_TextChanged(object sender, EventArgs e)
         {
             this.btnUpdate.Enabled = this.IsDataChanged();
+            this.btnAdd.Enabled = this.HasData();
         }
 
         private void txtKana_TextChanged(object sender, EventArgs e)
         {
             this.btnUpdate.Enabled = this.IsDataChanged();
+            this.btnAdd.Enabled = this.HasData();
         }
 
         private void txtVietnamese_TextChanged(object sender, EventArgs e)
         {
             this.btnUpdate.Enabled = this.IsDataChanged();
+            this.btnAdd.Enabled = this.HasData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -208,6 +213,8 @@ namespace JWord
                 lvi.SubItems[1].Text = SelectWord.Kanji;
                 lvi.SubItems[2].Text = SelectWord.Kana;
                 lvi.SubItems[3].Text = SelectWord.Meaning;
+
+                RefreshToMainForm();
             }
         }
 
@@ -228,5 +235,56 @@ namespace JWord
             this.SelectWord = null;
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Word word = new Word();
+            word.Kanji = this.txtKanji.Text;
+            word.Kana = this.txtKana.Text;
+            word.Meaning = this.txtVietnamese.Text;
+
+            Database db = new Database();
+            int i = db.InsertWord(word);
+
+            if (i > 0)
+            {
+                Word insertedWord = db.GetLastWord();
+                ListViewItem lvi = this.lviWordList.Items.Add(new ListViewItem(new string[] { "", word.Kanji, word.Kana, word.Meaning }));
+                lvi.Tag = insertedWord;
+                this.SelectWord = null;
+                this.txtKanji.Focus();
+                RefreshToMainForm();
+            }
+            else
+            {
+                MessageBox.Show("Thêm từ không thành công. Hãy thử lại!", "JWord", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void RefreshToMainForm()
+        {
+            parent.GetData();
+            parent.NextWord();
+        }
+
+        private bool HasData()
+        {
+            return  (this.txtKanji.Text != "") || 
+                    (this.txtKana.Text != "") || 
+                    (this.txtVietnamese.Text != "");
+        }
+
+        private void lviWordList_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            Database db = new Database();
+            if (e.Item.Tag != null)
+            {
+                Word word = e.Item.Tag as Word;
+                if (word.IsStudied != e.Item.Checked)
+                {
+                    word.IsStudied = e.Item.Checked;
+                    db.UpdateWord(word);
+                }
+            }
+        }
     }
 }

@@ -104,6 +104,9 @@ namespace JWord
         Random rd = new Random();
         public void NextWord()
         {
+            if (arr.Count == 0)
+                return;
+
             int i = rd.Next(0, numWord);
             Word w = arr[i] as Word;
 
