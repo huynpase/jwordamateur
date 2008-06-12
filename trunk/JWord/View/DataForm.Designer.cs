@@ -207,6 +207,7 @@
             resources.ApplyResources(this.btnDeleteAll, "btnDeleteAll");
             this.btnDeleteAll.Name = "btnDeleteAll";
             this.btnDeleteAll.UseVisualStyleBackColor = true;
+            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAll_Click);
             // 
             // rdoViewAll
             // 
@@ -221,12 +222,14 @@
             resources.ApplyResources(this.btnSetStudied, "btnSetStudied");
             this.btnSetStudied.Name = "btnSetStudied";
             this.btnSetStudied.UseVisualStyleBackColor = true;
+            this.btnSetStudied.Click += new System.EventHandler(this.btnSetStudied_Click);
             // 
             // btnSetUnstudied
             // 
             resources.ApplyResources(this.btnSetUnstudied, "btnSetUnstudied");
             this.btnSetUnstudied.Name = "btnSetUnstudied";
             this.btnSetUnstudied.UseVisualStyleBackColor = true;
+            this.btnSetUnstudied.Click += new System.EventHandler(this.btnSetUnstudied_Click);
             // 
             // DataForm
             // 

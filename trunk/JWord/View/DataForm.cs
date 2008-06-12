@@ -286,5 +286,74 @@ namespace JWord
                 }
             }
         }
+
+        private void btnSetUnstudied_Click(object sender, EventArgs e)
+        {
+            if (lviWordList.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Hãy chọn ít nhất một từ.","JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            Database db = new Database();
+            foreach (ListViewItem lvi in lviWordList.SelectedItems)
+            {
+                if (lvi.Tag != null && lvi.Tag is Word)
+                {
+                    Word word = lvi.Tag as Word;
+                    word.IsStudied = false;
+                    if (db.UpdateWord(word) >= 1)
+                    {
+                        lvi.Checked = false;
+                    }
+                }
+            }
+        }
+
+        private void btnSetStudied_Click(object sender, EventArgs e)
+        {
+            if (lviWordList.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Hãy chọn ít nhất một từ.", "JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            Database db = new Database();
+
+            foreach (ListViewItem lvi in lviWordList.SelectedItems)
+            {
+                if (lvi.Tag != null && lvi.Tag is Word)
+                {
+                    Word word = lvi.Tag as Word;
+                    word.IsStudied = true;
+                    if (db.UpdateWord(word) >= 1)
+                    {
+                        lvi.Checked = true;
+                    }
+                }
+            }
+        }
+
+        private void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            if (lviWordList.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Hãy chọn ít nhất một từ.", "JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            Database db = new Database();
+
+            foreach (ListViewItem lvi in lviWordList.SelectedItems)
+            {
+                if (lvi.Tag != null && lvi.Tag is Word)
+                {
+                    Word word = lvi.Tag as Word;
+                    if (db.DeleteWord(word) >= 1)
+                    {
+                        lviWordList.Items.Remove(lvi);
+                    }
+                }
+            }
+        }
     }
 }
