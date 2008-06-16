@@ -21,6 +21,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A4F3B9DA749447BE9ED506E5B190F575"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A7B87921ACFC4FD1A310D03DC79C7311"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F1BE64AC98184C4786AA670CFBC6F018"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -151,6 +163,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4F3B9DA749447BE9ED506E5B190F575"
+            {
+            "SourcePath" = "8:..\\JWord\\Dict\\EV\\ev.idx"
+            "TargetName" = "8:ev.idx"
+            "Tag" = "8:"
+            "Folder" = "8:_EFEC634B4EC549B38F000892FB685F56"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A7B87921ACFC4FD1A310D03DC79C7311"
+            {
+            "SourcePath" = "8:..\\JWord\\Dict\\EV\\ev.dat"
+            "TargetName" = "8:ev.dat"
+            "Tag" = "8:"
+            "Folder" = "8:_EFEC634B4EC549B38F000892FB685F56"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -200,6 +252,50 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_37A47478D9114EAC8B20526DB7438108"
+                    {
+                    "Name" = "8:Dict"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_8D60B753B1144F8183E54FD84F947AA8"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_8A49876448054D9D840BA8B9319139B2"
+                            {
+                            "Name" = "8:ev"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_BC45A17DA33D4906956610BB49336B24"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_971F997AD04049879005F9ED571D380D"
+                    {
+                    "Name" = "8:Audio"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_0567ABD9959549BD8081AAC44B292236"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_EFEC634B4EC549B38F000892FB685F56"
+                            {
+                            "Name" = "8:en"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_A19550D270B74C2D9998C62525024485"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_D93A280A33534B97B3F163EF1E56DFDA"
@@ -230,7 +326,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:JWord Amateur 2007"
         "ProductCode" = "8:{E5960B95-76D6-4218-8E7A-7745FAF68B58}"
-        "PackageCode" = "8:{C0CF0F04-764D-4697-BEBC-339FC4F292C6}"
+        "PackageCode" = "8:{A8620BFF-C4CE-4A54-B750-5F9A587F519D}"
         "UpgradeCode" = "8:{8E7435AE-BFDF-4C67-A789-E136B9286CB0}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
