@@ -46,11 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\SoundPlayer.cs" />
-    <Compile Include="dbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="PosType.cs" />
     <Compile Include="View\DataForm.cs">
       <SubType>Form</SubType>
@@ -118,17 +113,6 @@
     <None Include="Resources\Desktop.png" />
     <None Include="Resources\emoticon-7.png" />
     <None Include="Resources\boy-1.ico" />
-    <None Include="dbDataSet.xsc">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbDataSet.xss">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Resources\config.ico" />
     <None Include="Resources\exit.png" />
     <None Include="Resources\600-book.png" />
