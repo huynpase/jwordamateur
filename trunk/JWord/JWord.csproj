@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\PosType.cs" />
     <Compile Include="Control\SoundPlayer.cs" />
-    <Compile Include="PosType.cs" />
     <Compile Include="View\DataForm.cs">
       <SubType>Form</SubType>
     </Compile>
