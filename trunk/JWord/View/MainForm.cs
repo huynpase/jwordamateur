@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace JWord
 {
@@ -29,16 +30,21 @@ namespace JWord
         [DllImport("user32.dll", SetLastError = true)]
         static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
+        List<Word> arr = null;
+        int numWord = 0;
+        int initAttribute = 0;
+
+        SoundPlayer soundPlayer = new SoundPlayer();
+        Dictionary<string, string> soundDict = new Dictionary<string, string>();
+
         public MainForm()
         {
             InitializeComponent();
         }
         
-        List<Word> arr = null;
-        int numWord = 0;
-        int initAttribute = 0;
         private void MainForm_Load(object sender, EventArgs e)
         {
+            
             if (!Configuration.ShowKanji)
             {
                 this.Height = this.Height - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
@@ -100,7 +106,7 @@ namespace JWord
             arr = db.GetData(GetDataType.Unstudied);
             numWord = arr.Count;
         }
-
+        Word current = null;
         Random rd = new Random();
         public void NextWord()
         {
@@ -109,6 +115,7 @@ namespace JWord
 
             int i = rd.Next(0, numWord);
             Word w = arr[i] as Word;
+            current = w;
 
             lblKana.Text = w.Kana;
             
@@ -127,7 +134,6 @@ namespace JWord
 
             lblKanji.Text = w.Kanji;
             
-            this.Refresh();
             lblMeaning.Text = w.Meaning;
             if (w.Meaning.Length <= 10)
             {
@@ -137,6 +143,7 @@ namespace JWord
             {
                 this.lblMeaning.Font = new Font("Tahoma", 11, FontStyle.Regular);
             }
+            this.Refresh();
         }
 
         #region MoveEventHandler
@@ -220,6 +227,12 @@ namespace JWord
         {
             if (!this.tmDelay.Enabled)
                 this.tmDelay.Start();
+        }
+
+        public void PlaySound()
+        {
+            if(current != null)
+                SoundPlayer.Play(current.Kanji);
         }
     }
 }
