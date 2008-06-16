@@ -15,6 +15,7 @@ namespace JWord
                 System.Threading.Thread.Sleep(30);
             }
             frm.Opacity = Configuration.DefaultOpacity;
+            frm.PlaySound();
         }
         
         public static void FadeHide(MainForm frm)
