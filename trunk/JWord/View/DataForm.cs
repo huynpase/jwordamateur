@@ -54,7 +54,21 @@ namespace JWord
 
         void DictFileManager_OnGetMeaningComplete(GetMeaningCompleteArgs args)
         {
-            MessageBox.Show(args.Meaning);
+            RtfUtility rtfUtil = new RtfUtility();
+            try
+            {
+                string rtf = rtfUtil.GetRtfFromDictionaryString(args.Meaning);
+                this.rtbMeaning.Invoke(new UpdateRtfUI(UpdateRtf), rtf);
+            }
+            catch
+            {
+            }
+        }
+        private delegate void UpdateRtfUI(string rtfString);
+
+        private void UpdateRtf(string rtfString)
+        {
+            this.rtbMeaning.Rtf = rtfString;
         }
 
         private void lviWordList_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,6 +202,9 @@ namespace JWord
 
         private void txtKanji_TextChanged(object sender, EventArgs e)
         {
+            dict.StopGetMeaing();
+            dict.StartGetMeaning(this.txtKanji.Text);
+
             this.btnUpdate.Enabled = this.IsDataChanged();
             this.btnAdd.Enabled = this.HasData();
         }

@@ -46,15 +46,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClearText = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.rdoViewUnStudied = new System.Windows.Forms.RadioButton();
             this.rdoViewStudied = new System.Windows.Forms.RadioButton();
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.rdoViewAll = new System.Windows.Forms.RadioButton();
             this.btnSetStudied = new System.Windows.Forms.Button();
             this.btnSetUnstudied = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rtbMeaning = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lviWordList
@@ -170,7 +172,6 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.rdoViewUnStudied);
             this.groupBox2.Controls.Add(this.rdoViewStudied);
             this.groupBox2.Controls.Add(this.btnDeleteAll);
@@ -179,11 +180,6 @@
             this.groupBox2.Controls.Add(this.btnSetUnstudied);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
             // 
             // rdoViewUnStudied
             // 
@@ -231,11 +227,26 @@
             this.btnSetUnstudied.UseVisualStyleBackColor = true;
             this.btnSetUnstudied.Click += new System.EventHandler(this.btnSetUnstudied_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rtbMeaning);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.TabStop = false;
+            // 
+            // rtbMeaning
+            // 
+            this.rtbMeaning.BackColor = System.Drawing.Color.LightYellow;
+            this.rtbMeaning.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.rtbMeaning, "rtbMeaning");
+            this.rtbMeaning.Name = "rtbMeaning";
+            // 
             // DataForm
             // 
             this.AcceptButton = this.btnAdd;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lviWordList);
@@ -247,6 +258,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,8 +287,9 @@
         private System.Windows.Forms.Button btnSetUnstudied;
         private System.Windows.Forms.Button btnSetStudied;
         private System.Windows.Forms.Button btnDeleteAll;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnClearText;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RichTextBox rtbMeaning;
 
     }
 }
