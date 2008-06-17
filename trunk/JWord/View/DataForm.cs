@@ -10,6 +10,7 @@ namespace JWord
 {
     public partial class DataForm : Form
     {
+        DictFileManager dict = null;
         private Word currentWord;
         private Word SelectWord
         {
@@ -44,7 +45,16 @@ namespace JWord
 
         private void DataForm_Load(object sender, EventArgs e)
         {
+            dict = new DictFileManager();
+            DictFileManager.OnGetMeaningComplete += new DictFileManager.GetMeaningCompleteDelegate(DictFileManager_OnGetMeaningComplete);
+            dict.Init();
+
             RefreshData();
+        }
+
+        void DictFileManager_OnGetMeaningComplete(GetMeaningCompleteArgs args)
+        {
+            MessageBox.Show(args.Meaning);
         }
 
         private void lviWordList_SelectedIndexChanged(object sender, EventArgs e)
