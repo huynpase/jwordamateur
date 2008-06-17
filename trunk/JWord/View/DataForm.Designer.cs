@@ -237,7 +237,7 @@
             // rtbMeaning
             // 
             this.rtbMeaning.BackColor = System.Drawing.Color.LightYellow;
-            this.rtbMeaning.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbMeaning.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.rtbMeaning, "rtbMeaning");
             this.rtbMeaning.Name = "rtbMeaning";
             // 

@@ -49,6 +49,10 @@ namespace JWord
             return retRtfString;
         }
 
+        public string GetEmptyRtf()
+        {
+            return EMPTY_RTF;
+        }
         string ConvertToNCRDecimal(string str)
         {
             if (str == null)
@@ -84,5 +88,7 @@ namespace JWord
         private const string EXCLAMATION_START = @"\pard\fi-300\li730\sb15\sa15\cf1\f3 o\tab\b\i\f0";
         private const string EXCLAMATION_END = @"\par";
         private const string ADD_INLINE_START = @"\b0 :";
+
+        private const string EMPTY_RTF = @"{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fswiss\fcharset0 Arial;}}{\*\generator Msftedit 5.41.21.2508;}\viewkind4\uc1\pard\f0\fs20\par}";
     }
 }

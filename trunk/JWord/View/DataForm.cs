@@ -57,8 +57,15 @@ namespace JWord
             RtfUtility rtfUtil = new RtfUtility();
             try
             {
-                string rtf = rtfUtil.GetRtfFromDictionaryString(args.Meaning);
-                this.rtbMeaning.Invoke(new UpdateRtfUI(UpdateRtf), rtf);
+                if (args.Meaning != "")
+                {
+                    string rtf = rtfUtil.GetRtfFromDictionaryString(args.Meaning);
+                    this.rtbMeaning.Invoke(new UpdateRtfUI(UpdateRtf), rtf);
+                }
+                else
+                {
+                    this.rtbMeaning.Rtf = rtfUtil.GetEmptyRtf();
+                }
             }
             catch
             {

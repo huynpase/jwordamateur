@@ -92,7 +92,13 @@ namespace JWord
             {
                 GetMeaningArgs arg2 = arg as GetMeaningArgs;
                 if ((arg2.Word == null) || (arg2.AllDicts == null))
+                {
+                    GetMeaningCompleteArgs arg3 = new GetMeaningCompleteArgs();
+                    arg3.Meaning = "";
+                    arg3.GetMeaningArgs = arg2;
+                    OnGetMeaningComplete(arg3);
                     return;
+                }
 
                 foreach (DictFileInfo dict in arg2.AllDicts)
                 {
@@ -111,6 +117,13 @@ namespace JWord
                             arg3.GetMeaningArgs = arg2;
                             OnGetMeaningComplete(arg3);
                         }
+                    }
+                    else
+                    {
+                        GetMeaningCompleteArgs arg3 = new GetMeaningCompleteArgs();
+                        arg3.Meaning = "";
+                        arg3.GetMeaningArgs = arg2;
+                        OnGetMeaningComplete(arg3);
                     }
                 }
             }
