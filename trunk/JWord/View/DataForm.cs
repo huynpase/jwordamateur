@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Net.SourceForge.Vietpad.InputMethod;
 
 namespace JWord
 {
@@ -50,6 +51,16 @@ namespace JWord
             dict.Init();
 
             RefreshData();
+            InitInputMethod();
+        }
+
+        private void InitInputMethod()
+        {
+            VietKeyHandler keyHandler = new VietKeyHandler(txtVietnamese);
+            txtVietnamese.KeyPress += new KeyPressEventHandler(keyHandler.OnKeyPress);
+            VietKeyHandler.InputMethod = InputMethods.Telex;
+            VietKeyHandler.VietModeEnabled = true;
+            VietKeyHandler.SmartMark = true;
         }
 
         void DictFileManager_OnGetMeaningComplete(GetMeaningCompleteArgs args)
