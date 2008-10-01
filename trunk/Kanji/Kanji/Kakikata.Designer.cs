@@ -52,6 +52,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Kakikata";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Kakikata";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Kakikata_FormClosing);

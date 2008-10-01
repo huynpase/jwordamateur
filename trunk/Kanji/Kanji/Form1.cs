@@ -135,6 +135,11 @@ namespace Kanji
             kakikata.SetImage(string.Format(@"Kanji\{0}.gif", stt2));
             //kakikata.Show();
         }
+
+        private void Form1_LocationChanged(object sender, EventArgs e)
+        {
+            kakikata.Location = new Point(this.Location.X + this.Width + 15, this.Location.Y);
+        }
     }
 
     public class Word
