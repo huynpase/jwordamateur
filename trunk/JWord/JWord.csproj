@@ -16,6 +16,22 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <NoWin32Manifest>true</NoWin32Manifest>
+    <SignManifests>false</SignManifests>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,9 +66,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\DictFileManager.cs" />
+    <Compile Include="Control\ImageOpacity.cs" />
     <Compile Include="Control\PosType.cs" />
     <Compile Include="Control\RtfUtility.cs" />
     <Compile Include="Control\SoundPlayer.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="View\ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DataForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +102,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DataForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DataForm.cs</DependentUpon>
@@ -116,13 +144,38 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Japan.ico" />
+    <Content Include="Resources\bgBL.png" />
+    <Content Include="Resources\bgBR.png" />
+    <Content Include="Resources\bgTL.png" />
+    <Content Include="Resources\bgTR.png" />
+    <Content Include="Resources\en.png" />
+    <Content Include="Resources\jwordDemo.png" />
+    <Content Include="Resources\screen.png" />
+    <Content Include="Resources\vi.png" />
     <None Include="Resources\Desktop.png" />
-    <None Include="Resources\emoticon-7.png" />
+    <None Include="Resources\about.png" />
     <None Include="Resources\boy-1.ico" />
     <None Include="Resources\config.ico" />
     <None Include="Resources\exit.png" />
     <None Include="Resources\600-book.png" />
     <None Include="Resources\Dictionary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

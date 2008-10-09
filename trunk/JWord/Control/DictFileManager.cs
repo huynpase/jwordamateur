@@ -15,7 +15,7 @@ namespace JWord
 
         public delegate void GetMeaningCompleteDelegate(GetMeaningCompleteArgs args);
         public static event GetMeaningCompleteDelegate OnGetMeaningComplete;
-        
+
         private static ParameterizedThreadStart threadStart = new ParameterizedThreadStart(DictFileManager.GetMeaning);
         Thread thread = null;
 
@@ -91,10 +91,11 @@ namespace JWord
             if (arg is GetMeaningArgs)
             {
                 GetMeaningArgs arg2 = arg as GetMeaningArgs;
+                GetMeaningCompleteArgs arg3 = new GetMeaningCompleteArgs();
+                arg3.Meaning = string.Empty;
+
                 if ((arg2.Word == null) || (arg2.AllDicts == null))
                 {
-                    GetMeaningCompleteArgs arg3 = new GetMeaningCompleteArgs();
-                    arg3.Meaning = "";
                     arg3.GetMeaningArgs = arg2;
                     OnGetMeaningComplete(arg3);
                     return;
@@ -112,19 +113,16 @@ namespace JWord
 
                         if (OnGetMeaningComplete != null)
                         {
-                            GetMeaningCompleteArgs arg3 = new GetMeaningCompleteArgs();
-                            arg3.Meaning = mean;
+                            arg3.Meaning = arg3.Meaning + mean;
                             arg3.GetMeaningArgs = arg2;
-                            OnGetMeaningComplete(arg3);
+
                         }
                     }
                     else
                     {
-                        GetMeaningCompleteArgs arg3 = new GetMeaningCompleteArgs();
-                        arg3.Meaning = "";
                         arg3.GetMeaningArgs = arg2;
-                        OnGetMeaningComplete(arg3);
                     }
+                    OnGetMeaningComplete(arg3);
                 }
             }
         }
@@ -271,17 +269,17 @@ namespace JWord
         public void Init()
         {
             StreamReader sr = new StreamReader(path);
-           
+
             while (sr.Peek() > 0)
             {
                 string temp = sr.ReadLine();
-                
+
                 if (temp == null || temp == "")
                 {
                     continue;
                 }
 
-                string[] strs = temp.Split(new char[]{'\t'});
+                string[] strs = temp.Split(new char[] { '\t' });
 
                 if (strs.Length == 3)
                 {

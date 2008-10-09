@@ -108,7 +108,7 @@
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(131, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
             this.contextMenuStrip1.Opened += new System.EventHandler(this.contextMenuStrip1_Opened);
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
             // 
@@ -119,7 +119,7 @@
             this.clickThrToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.clickThrToolStripMenuItem.Image = global::JWord.Properties.Resources.Desktop;
             this.clickThrToolStripMenuItem.Name = "clickThrToolStripMenuItem";
-            this.clickThrToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.clickThrToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clickThrToolStripMenuItem.Text = "&Xuyên qua";
             this.clickThrToolStripMenuItem.ToolTipText = "Tính năng này cho phép bạn có thề làm việc được với các cửa sổ khác khi JWord đan" +
                 "g được bật";
@@ -129,22 +129,23 @@
             // 
             this.toolStripMenuItem1.Image = global::JWord.Properties.Resources.config;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem1.Text = "&Cấu hình";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // databaseToolStripMenuItem
             // 
             this.databaseToolStripMenuItem.Image = global::JWord.Properties.Resources.book;
             this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.databaseToolStripMenuItem.Text = "Từ &vựng";
             this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Image = global::JWord.Properties.Resources.emoticon_7;
+            this.aboutToolStripMenuItem.Image = global::JWord.Properties.Resources.about;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -152,7 +153,7 @@
             // 
             this.exitToolStripMenuItem.Image = global::JWord.Properties.Resources.exit;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "&Thoát";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -182,7 +183,7 @@
             this.notifyIcon1.Text = "JWord Pro 2.1";
             this.notifyIcon1.Visible = true;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +191,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -221,6 +222,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ToolStripMenuItem clickThrToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        public System.Windows.Forms.Timer TmDelay
+        {
+            get { return tmDelay; }
+            set { tmDelay = value; }
+        }
     }
 }
 

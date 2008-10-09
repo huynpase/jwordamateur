@@ -44,17 +44,25 @@ namespace JWord
         
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+            MainFormRefesh();   
+        }
+
+        public void MainFormRefesh()
+        {
             if (!Configuration.ShowKanji)
             {
-                this.Height = this.Height - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
+                this.Height = 125 - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
+            }
+            else
+            {
+                this.Height = 125;
             }
 
             // Show notification
             this.notifyIcon1.Visible = true;
 
             //Setup Transparent for window
-            this.Opacity = Configuration.DefaultOpacity;
+            this.Opacity = Configuration.Opacity;
             this.initAttribute = GetWindowLong(this.Handle, GWL_EXSTYLE);
             SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
 
@@ -64,7 +72,7 @@ namespace JWord
             int taskWidth = scr.Width - desk.Width;
             int taskHeight = scr.Height - desk.Height;
 
-            switch(Configuration.Position)
+            switch (Configuration.Position)
             {
                 case 1:
                     //Left, top Pos
@@ -82,16 +90,15 @@ namespace JWord
                     //Left, Bottom Pos
                     this.Location = new Point(desk.X + Configuration.Place, desk.Y + desk.Height - this.Height - Configuration.Place);
                     break;
-            
-            }
 
+            }
+            //Configuration.Position = 1;
             this.tmDelay.Interval = Configuration.FreezeTime * 1000;
             this.tmDelay.Start();
 
             //Show the first word
             GetData();
             NextWord();
-            
         }
 
         private void tmDelay_Tick(object sender, EventArgs e)
@@ -187,6 +194,15 @@ namespace JWord
             this.tmDelay.Start();
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.tmDelay.Stop();
+            ConfigForm frm = new ConfigForm();
+            frm.ParentWindow = this;
+            frm.ShowDialog();
+            this.tmDelay.Start();
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
@@ -206,17 +222,7 @@ namespace JWord
             }
             //SetLayeredWindowAttributes(this.Handle, 0, Convert.ToByte(255 * clsConfiguration.defaultOpacity), LWA_ALPHA);
         }
-
-        private void notifyIcon1_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void notifyIcon1_MouseDown(object sender, MouseEventArgs e)
-        {
-
-        }
-
+        
         private void contextMenuStrip1_Opened(object sender, EventArgs e)
         {
             if (this.tmDelay.Enabled)
@@ -234,5 +240,7 @@ namespace JWord
             if(current != null)
                 SoundPlayer.Play(current.Kanji);
         }
+
+        
     }
 }

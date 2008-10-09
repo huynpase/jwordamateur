@@ -129,7 +129,7 @@
     <value>Đã học</value>
   </data>
   <data name="columnHeader4.Width" type="System.Int32, mscorlib">
-    <value>50</value>
+    <value>73</value>
   </data>
   <data name="columnHeader1.DisplayIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -172,7 +172,7 @@
     <value>12, 12</value>
   </data>
   <data name="lviWordList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 173</value>
+    <value>621, 179</value>
   </data>
   <data name="lviWordList.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -211,7 +211,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtKanji.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtVietnamese.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -235,7 +235,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtVietnamese.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="txtKana.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>Off</value>
@@ -259,10 +259,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtKana.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>On</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 30</value>
@@ -286,7 +289,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -316,7 +319,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -346,7 +349,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btnAdd.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -355,7 +358,7 @@
     <value>On</value>
   </data>
   <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 130</value>
+    <value>116, 130</value>
   </data>
   <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 23</value>
@@ -376,7 +379,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="btnUpdate.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -406,7 +409,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnUpdate.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnDelete.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -415,7 +418,7 @@
     <value>On</value>
   </data>
   <data name="btnDelete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 159</value>
+    <value>116, 159</value>
   </data>
   <data name="btnDelete.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 23</value>
@@ -436,10 +439,40 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnDelete.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
+  </data>
+  <data name="picTyping.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>On</value>
+  </data>
+  <data name="picTyping.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 88</value>
+  </data>
+  <data name="picTyping.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="picTyping.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <metadata name="toolTipTyping.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="picTyping.ToolTip" xml:space="preserve">
+    <value>Kiểu gõ bàn phím.</value>
+  </data>
+  <data name="&gt;&gt;picTyping.Name" xml:space="preserve">
+    <value>picTyping</value>
+  </data>
+  <data name="&gt;&gt;picTyping.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picTyping.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;picTyping.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="btnClearText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
@@ -466,13 +499,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btnClearText.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 280</value>
+    <value>12, 286</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 192</value>
+    <value>230, 192</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -493,7 +526,103 @@
     <value>2</value>
   </data>
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;rdoViewUnStudied.Name" xml:space="preserve">
+    <value>rdoViewUnStudied</value>
+  </data>
+  <data name="&gt;&gt;rdoViewUnStudied.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoViewUnStudied.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;rdoViewUnStudied.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;rdoViewStudied.Name" xml:space="preserve">
+    <value>rdoViewStudied</value>
+  </data>
+  <data name="&gt;&gt;rdoViewStudied.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoViewStudied.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;rdoViewStudied.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteAll.Name" xml:space="preserve">
+    <value>btnDeleteAll</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteAll.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btnDeleteAll.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;rdoViewAll.Name" xml:space="preserve">
+    <value>rdoViewAll</value>
+  </data>
+  <data name="&gt;&gt;rdoViewAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rdoViewAll.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;rdoViewAll.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnSetStudied.Name" xml:space="preserve">
+    <value>btnSetStudied</value>
+  </data>
+  <data name="&gt;&gt;btnSetStudied.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSetStudied.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btnSetStudied.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnSetUnstudied.Name" xml:space="preserve">
+    <value>btnSetUnstudied</value>
+  </data>
+  <data name="&gt;&gt;btnSetUnstudied.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSetUnstudied.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;btnSetUnstudied.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 197</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>621, 83</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="rdoViewUnStudied.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -502,7 +631,7 @@
     <value>On</value>
   </data>
   <data name="rdoViewUnStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>199, 19</value>
+    <value>123, 19</value>
   </data>
   <data name="rdoViewUnStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 17</value>
@@ -532,7 +661,7 @@
     <value>On</value>
   </data>
   <data name="rdoViewStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>326, 19</value>
+    <value>250, 19</value>
   </data>
   <data name="rdoViewStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 17</value>
@@ -559,7 +688,7 @@
     <value>On</value>
   </data>
   <data name="btnDeleteAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 42</value>
+    <value>231, 42</value>
   </data>
   <data name="btnDeleteAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -585,8 +714,11 @@
   <data name="rdoViewAll.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="rdoViewAll.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>On</value>
+  </data>
   <data name="rdoViewAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>442, 19</value>
+    <value>366, 19</value>
   </data>
   <data name="rdoViewAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 17</value>
@@ -613,7 +745,7 @@
     <value>On</value>
   </data>
   <data name="btnSetStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>114, 42</value>
+    <value>122, 42</value>
   </data>
   <data name="btnSetStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -636,8 +768,11 @@
   <data name="&gt;&gt;btnSetStudied.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="btnSetUnstudied.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>On</value>
+  </data>
   <data name="btnSetUnstudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 42</value>
+    <value>14, 42</value>
   </data>
   <data name="btnSetUnstudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -660,35 +795,53 @@
   <data name="&gt;&gt;btnSetUnstudied.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 191</value>
+  <data name="groupBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>572, 83</value>
+  <data name="&gt;&gt;rtbMeaning.Name" xml:space="preserve">
+    <value>rtbMeaning</value>
   </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;rtbMeaning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>Thao tác</value>
+  <data name="&gt;&gt;rtbMeaning.Parent" xml:space="preserve">
+    <value>groupBox3</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;rtbMeaning.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 286</value>
+  </data>
+  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 192</value>
+  </data>
+  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>Nghĩa từ</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rtbMeaning.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
   <data name="rtbMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 19</value>
+    <value>11, 22</value>
   </data>
   <data name="rtbMeaning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>324, 158</value>
+    <value>359, 158</value>
   </data>
   <data name="rtbMeaning.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -708,30 +861,6 @@
   <data name="&gt;&gt;rtbMeaning.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>242, 280</value>
-  </data>
-  <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 192</value>
-  </data>
-  <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>Nghĩa từ</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -739,7 +868,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>596, 480</value>
+    <value>645, 486</value>
   </data>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>On</value>
@@ -748,7 +877,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Quản lý từ</value>
+    <value>Quản lý từ (Quan ly tu)</value>
   </data>
   <data name="&gt;&gt;columnHeader4.Name" xml:space="preserve">
     <value>columnHeader4</value>
@@ -773,6 +902,12 @@
   </data>
   <data name="&gt;&gt;columnHeader3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTipTyping.Name" xml:space="preserve">
+    <value>toolTipTyping</value>
+  </data>
+  <data name="&gt;&gt;toolTipTyping.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DataForm</value>

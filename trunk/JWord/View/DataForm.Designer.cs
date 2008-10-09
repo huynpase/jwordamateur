@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataForm));
             this.lviWordList = new System.Windows.Forms.ListView();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
@@ -44,6 +45,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picTyping = new System.Windows.Forms.PictureBox();
             this.btnClearText = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdoViewUnStudied = new System.Windows.Forms.RadioButton();
@@ -54,7 +56,9 @@
             this.btnSetUnstudied = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rtbMeaning = new System.Windows.Forms.RichTextBox();
+            this.toolTipTyping = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picTyping)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +153,7 @@
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.picTyping);
             this.groupBox1.Controls.Add(this.txtVietnamese);
             this.groupBox1.Controls.Add(this.btnClearText);
             this.groupBox1.Controls.Add(this.btnDelete);
@@ -161,6 +166,17 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // picTyping
+            // 
+            this.picTyping.BackColor = System.Drawing.Color.Transparent;
+            this.picTyping.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picTyping.Image = global::JWord.Properties.Resources.vi;
+            resources.ApplyResources(this.picTyping, "picTyping");
+            this.picTyping.Name = "picTyping";
+            this.picTyping.TabStop = false;
+            this.toolTipTyping.SetToolTip(this.picTyping, resources.GetString("picTyping.ToolTip"));
+            this.picTyping.Click += new System.EventHandler(this.picTyping_Click);
             // 
             // btnClearText
             // 
@@ -229,16 +245,16 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.rtbMeaning);
             resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Controls.Add(this.rtbMeaning);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
             // rtbMeaning
             // 
+            resources.ApplyResources(this.rtbMeaning, "rtbMeaning");
             this.rtbMeaning.BackColor = System.Drawing.Color.LightYellow;
             this.rtbMeaning.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.rtbMeaning, "rtbMeaning");
             this.rtbMeaning.Name = "rtbMeaning";
             // 
             // DataForm
@@ -250,12 +266,13 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lviWordList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DataForm";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.DataForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DataForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picTyping)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -290,6 +307,8 @@
         private System.Windows.Forms.Button btnClearText;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox rtbMeaning;
+        private System.Windows.Forms.PictureBox picTyping;
+        private System.Windows.Forms.ToolTip toolTipTyping;
 
     }
 }

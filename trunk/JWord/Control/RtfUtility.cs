@@ -42,7 +42,7 @@ namespace JWord
                 {
                     continue;
                 }
-            }
+             }
 
             strReader.Close();
             retRtfString += RTF_END;

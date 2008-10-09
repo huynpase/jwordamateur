@@ -30,6 +30,8 @@ namespace JWord
         public DataForm()
         {
             InitializeComponent();
+            keyHandler = new VietKeyHandler(txtVietnamese);
+            keyPressHandler = new KeyPressEventHandler(keyHandler.OnKeyPress);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,8 +58,7 @@ namespace JWord
 
         private void InitInputMethod()
         {
-            VietKeyHandler keyHandler = new VietKeyHandler(txtVietnamese);
-            txtVietnamese.KeyPress += new KeyPressEventHandler(keyHandler.OnKeyPress);
+            txtVietnamese.KeyPress += keyPressHandler;
             VietKeyHandler.InputMethod = InputMethods.Telex;
             VietKeyHandler.VietModeEnabled = true;
             VietKeyHandler.SmartMark = true;
@@ -87,6 +88,8 @@ namespace JWord
         private void UpdateRtf(string rtfString)
         {
             this.rtbMeaning.Rtf = rtfString;
+            
+            
         }
 
         private void lviWordList_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,12 +176,18 @@ namespace JWord
         {
             foreach (Word word in words)
             {
-                if (word != null)
+                if (null != word)
                 {
                     ListViewItem lvi = new ListViewItem(new string[] { "", word.Kanji, word.Kana, word.Meaning });
                     lvi.Checked = word.IsStudied;
-                    lvi.Tag = word;
                     this.lviWordList.Items.Add(lvi);
+                }
+            }
+            for (int index = 0; index < words.Count; index++)
+            {
+                if (null != words[index])
+                {
+                    lviWordList.Items[index].Tag = words[index];
                 }
             }
         }
@@ -205,17 +214,20 @@ namespace JWord
 
         private void rdoViewUnStudied_CheckedChanged(object sender, EventArgs e)
         {
-            RefreshData();
+            if(rdoViewUnStudied.Checked)
+                RefreshData();
         }
 
         private void rdoViewStudied_CheckedChanged(object sender, EventArgs e)
         {
-            RefreshData();
+            if (rdoViewStudied.Checked)
+                RefreshData();
         }
 
         private void rdoViewAll_CheckedChanged(object sender, EventArgs e)
         {
-            RefreshData();
+            if (rdoViewAll.Checked)
+                RefreshData();
         }
 
         private void txtKanji_TextChanged(object sender, EventArgs e)
@@ -400,5 +412,25 @@ namespace JWord
                 }
             }
         }
+
+        private void picTyping_Click(object sender, EventArgs e)
+        {
+            isVietNamese = !isVietNamese;
+            if (isVietNamese)
+            {
+                txtVietnamese.KeyPress += keyPressHandler;
+                picTyping.Image = global::JWord.Properties.Resources.vi;
+            }
+            else
+            {
+                txtVietnamese.KeyPress -= keyPressHandler;
+                picTyping.Image = global::JWord.Properties.Resources.en;
+            }
+        }
+
+        private bool isVietNamese = true;
+        private VietKeyHandler keyHandler;// = new VietKeyHandler(txtVietnamese);
+        private KeyPressEventHandler keyPressHandler; //= new KeyPressEventHandler(keyHandler.OnKeyPress);
+        
     }
 }

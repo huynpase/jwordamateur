@@ -60,6 +60,41 @@ namespace JWord.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap about {
+            get {
+                object obj = ResourceManager.GetObject("about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bgBL {
+            get {
+                object obj = ResourceManager.GetObject("bgBL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bgBR {
+            get {
+                object obj = ResourceManager.GetObject("bgBR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bgTL {
+            get {
+                object obj = ResourceManager.GetObject("bgTL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap bgTR {
+            get {
+                object obj = ResourceManager.GetObject("bgTR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap book {
             get {
                 object obj = ResourceManager.GetObject("book", resourceCulture);
@@ -81,9 +116,9 @@ namespace JWord.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap emoticon_7 {
+        internal static System.Drawing.Bitmap en {
             get {
-                object obj = ResourceManager.GetObject("emoticon-7", resourceCulture);
+                object obj = ResourceManager.GetObject("en", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -91,6 +126,27 @@ namespace JWord.Properties {
         internal static System.Drawing.Bitmap exit {
             get {
                 object obj = ResourceManager.GetObject("exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap jwordDemo {
+            get {
+                object obj = ResourceManager.GetObject("jwordDemo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap screen {
+            get {
+                object obj = ResourceManager.GetObject("screen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap vi {
+            get {
+                object obj = ResourceManager.GetObject("vi", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
