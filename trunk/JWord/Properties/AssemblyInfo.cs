@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("JWord Amateur")]
-[assembly: AssemblyDescription("Created by ManhVT2, HiepNK.\r\nG7.D1 - FPT Software Jsc.\r\n\r\nMọi ý kiến xin gửi về:\r\n- manhvt2@fsoft.com.vn\r\n- hiepnk@fsoft.com.vn\r\n\r\nChương trình có sử dụng thư viện VietKeyInput.dll\r\nvà từ điển mở của Hồ Ngọc Đức.")]
+[assembly: AssemblyDescription("Created by Võ Thế Mạnh, Nguyễn Khắc Hiệp\r\nG7.D1 - FPT Software Jsc.\r\n\r\nMọi ý kiến xin gửi về:\r\n- manhvt2@fsoft.com.vn\r\n- hiepnk@fsoft.com.vn\r\n\r\nChương trình có sử dụng thư viện VietKeyInput.dll\r\nvà từ điển mở của Hồ Ngọc Đức.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Masusoft Company")]
 [assembly: AssemblyProduct("JWord Amateur 2008")]
