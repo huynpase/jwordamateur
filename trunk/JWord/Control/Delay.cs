@@ -8,7 +8,7 @@ namespace JWord
     {      
         public static void FadeShow(MainForm frm)
         {
-            frm.Show();
+            //frm.Show();
             for (float f = 0.0F; f < Configuration.Opacity; f = f + 0.05F)
             {
                 frm.Opacity = f;
@@ -27,7 +27,7 @@ namespace JWord
             }
             frm.NextWord();
             frm.Opacity = 0;
-            frm.Hide();
+            //frm.Hide();
             System.Threading.Thread.Sleep(1000);            
         }
     }

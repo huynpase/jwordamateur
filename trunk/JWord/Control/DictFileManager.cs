@@ -26,8 +26,6 @@ namespace JWord
             try
             {
                 dirInfo = new DirectoryInfo(DICT_PATH);
-                if (!dirInfo.Exists)
-                    return;
             }
             catch
             {

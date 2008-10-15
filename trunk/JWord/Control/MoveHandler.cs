@@ -15,6 +15,7 @@ namespace JWord
         {
             IsDragged = true;
             OldPos = new Point(e.X, e.Y);
+            
         }
 
         public static void MouseUp()

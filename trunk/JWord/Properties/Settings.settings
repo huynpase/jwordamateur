@@ -31,5 +31,17 @@
     <Setting Name="MouseOverOpacity" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.4</Value>
     </Setting>
+    <Setting Name="ShowKanjiInLearning" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowMeaning" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowOnyomi" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ShowKunyomi" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

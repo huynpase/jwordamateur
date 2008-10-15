@@ -60,9 +60,30 @@ namespace JWord.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap _4E7E {
+            get {
+                object obj = ResourceManager.GetObject("4E7E", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap about {
             get {
                 object obj = ResourceManager.GetObject("about", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap back_off {
+            get {
+                object obj = ResourceManager.GetObject("back_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap back_on {
+            get {
+                object obj = ResourceManager.GetObject("back_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -130,9 +151,51 @@ namespace JWord.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap flag_china {
+            get {
+                object obj = ResourceManager.GetObject("flag_china", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap jwordDemo {
             get {
                 object obj = ResourceManager.GetObject("jwordDemo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap KanjiFrame {
+            get {
+                object obj = ResourceManager.GetObject("KanjiFrame", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lockView {
+            get {
+                object obj = ResourceManager.GetObject("lockView", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap next_off {
+            get {
+                object obj = ResourceManager.GetObject("next_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap next_on {
+            get {
+                object obj = ResourceManager.GetObject("next_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap noimage {
+            get {
+                object obj = ResourceManager.GetObject("noimage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

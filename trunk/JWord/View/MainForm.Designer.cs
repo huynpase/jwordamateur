@@ -35,13 +35,14 @@
             this.lblKana = new System.Windows.Forms.Label();
             this.lblMeaning = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clickThrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kanjiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.tmForGetMouseLocation = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -102,28 +103,15 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clickThrToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.databaseToolStripMenuItem,
+            this.kanjiToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
             this.contextMenuStrip1.Opened += new System.EventHandler(this.contextMenuStrip1_Opened);
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
-            // 
-            // clickThrToolStripMenuItem
-            // 
-            this.clickThrToolStripMenuItem.Checked = true;
-            this.clickThrToolStripMenuItem.CheckOnClick = true;
-            this.clickThrToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.clickThrToolStripMenuItem.Image = global::JWord.Properties.Resources.Desktop;
-            this.clickThrToolStripMenuItem.Name = "clickThrToolStripMenuItem";
-            this.clickThrToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.clickThrToolStripMenuItem.Text = "&Xuyên qua";
-            this.clickThrToolStripMenuItem.ToolTipText = "Tính năng này cho phép bạn có thề làm việc được với các cửa sổ khác khi JWord đan" +
-                "g được bật";
-            this.clickThrToolStripMenuItem.Click += new System.EventHandler(this.clickThrToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -140,6 +128,14 @@
             this.databaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.databaseToolStripMenuItem.Text = "Từ &vựng";
             this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
+            // 
+            // kanjiToolStripMenuItem
+            // 
+            this.kanjiToolStripMenuItem.Image = global::JWord.Properties.Resources.flag_china;
+            this.kanjiToolStripMenuItem.Name = "kanjiToolStripMenuItem";
+            this.kanjiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kanjiToolStripMenuItem.Text = "Học kanji";
+            this.kanjiToolStripMenuItem.Click += new System.EventHandler(this.kanjiToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -183,6 +179,10 @@
             this.notifyIcon1.Text = "JWord Pro 2.1";
             this.notifyIcon1.Visible = true;
             // 
+            // tmForGetMouseLocation
+            // 
+            this.tmForGetMouseLocation.Tick += new System.EventHandler(this.tmForGetMouseLocation_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,8 +220,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ToolStripMenuItem clickThrToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem kanjiToolStripMenuItem;
+        private System.Windows.Forms.Timer tmForGetMouseLocation;
+    
         public System.Windows.Forms.Timer TmDelay
         {
             get { return tmDelay; }

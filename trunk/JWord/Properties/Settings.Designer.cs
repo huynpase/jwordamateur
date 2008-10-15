@@ -116,5 +116,53 @@ namespace JWord.Properties {
                 this["MouseOverOpacity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowKanjiInLearning {
+            get {
+                return ((bool)(this["ShowKanjiInLearning"]));
+            }
+            set {
+                this["ShowKanjiInLearning"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowMeaning {
+            get {
+                return ((bool)(this["ShowMeaning"]));
+            }
+            set {
+                this["ShowMeaning"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowOnyomi {
+            get {
+                return ((bool)(this["ShowOnyomi"]));
+            }
+            set {
+                this["ShowOnyomi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowKunyomi {
+            get {
+                return ((bool)(this["ShowKunyomi"]));
+            }
+            set {
+                this["ShowKunyomi"] = value;
+            }
+        }
     }
 }

@@ -30,14 +30,9 @@ namespace JWord
         public DataForm()
         {
             InitializeComponent();
+            kanjiUserControl.parent = parent;
             keyHandler = new VietKeyHandler(txtVietnamese);
             keyPressHandler = new KeyPressEventHandler(keyHandler.OnKeyPress);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            parent.GetData();
-            parent.NextWord();
         }
 
         private void DataForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -48,6 +43,8 @@ namespace JWord
 
         private void DataForm_Load(object sender, EventArgs e)
         {
+            kanjiUserControl.TextBoxKanji.TextChanged += new EventHandler(TextBoxKanjiInKanjiControl_TextChanged);
+
             dict = new DictFileManager();
             DictFileManager.OnGetMeaningComplete += new DictFileManager.GetMeaningCompleteDelegate(DictFileManager_OnGetMeaningComplete);
             dict.Init();
@@ -73,6 +70,8 @@ namespace JWord
                 {
                     string rtf = rtfUtil.GetRtfFromDictionaryString(args.Meaning);
                     this.rtbMeaning.Invoke(new UpdateRtfUI(UpdateRtf), rtf);
+                    this.rtfQuickDic.Invoke(new UpdateRtfUI(UpdateRtf), rtf);
+                    this.kanjiUserControl.RichTextQickDic.Invoke(new UpdateRtfUI(UpdateRtf), rtf);
                 }
                 else
                 {
@@ -87,9 +86,15 @@ namespace JWord
 
         private void UpdateRtf(string rtfString)
         {
-            this.rtbMeaning.Rtf = rtfString;
-            
-            
+            if (isDicInDicTab)
+                this.rtbMeaning.Rtf = rtfString;
+
+            //TODO: moi them
+            else if (isDicInWordTab)
+                this.rtfQuickDic.Rtf = rtfString;
+            else if (isDicInKanjiTab)
+                kanjiUserControl.RichTextQickDic.Rtf = rtfString;
+
         }
 
         private void lviWordList_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,8 +108,11 @@ namespace JWord
                         MessageBox.Show("Nội dung từ đã thay đổi, bạn có muốn cập nhật không?","JWord", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         Database db = new Database();
-                        db.DeleteWord(this.SelectWord);
-                        this.SelectWord = null;
+                        this.SelectWord.Kanji = txtKanji.Text;
+                        this.SelectWord.Kanji = txtKana.Text;
+                        this.SelectWord.Kanji = txtVietnamese.Text;
+                        db.UpdateWord(this.SelectWord);
+                        //this.SelectWord = null;
                     }
                     else
                     {
@@ -122,15 +130,15 @@ namespace JWord
             List<Word> words ;
             if (this.rdoViewAll.Checked)
             {
-                words = database.GetData(GetDataType.All); 
+                words = database.GetWordData(GetDataType.All); 
             }
             else if (this.rdoViewUnStudied.Checked)
             {
-                words = database.GetData(GetDataType.Unstudied);
+                words = database.GetWordData(GetDataType.Unstudied);
             }
             else
             {
-                words = database.GetData(GetDataType.Studied);
+                words = database.GetWordData(GetDataType.Studied);
             }
             this.FillWordsIntoListView(words);
         }
@@ -178,7 +186,7 @@ namespace JWord
             {
                 if (null != word)
                 {
-                    ListViewItem lvi = new ListViewItem(new string[] { "", word.Kanji, word.Kana, word.Meaning });
+                    ListViewItem lvi = new ListViewItem(new string[] { "", word.Kanji, word.Kana, word.Meaning});
                     lvi.Checked = word.IsStudied;
                     this.lviWordList.Items.Add(lvi);
                 }
@@ -232,11 +240,33 @@ namespace JWord
 
         private void txtKanji_TextChanged(object sender, EventArgs e)
         {
+            //TODO: Moi comment in
+            isDicInWordTab = true;
+            isDicInDicTab = false;
+            isDicInKanjiTab = false;
             dict.StopGetMeaing();
-            dict.StartGetMeaning(this.txtKanji.Text);
+            dict.StartGetMeaning(this.txtKanji.Text.ToLower());
 
             this.btnUpdate.Enabled = this.IsDataChanged();
             this.btnAdd.Enabled = this.HasData();
+        }
+
+        private void TextBoxKanjiInKanjiControl_TextChanged(object sender, EventArgs e)
+        {
+            isDicInWordTab = false;
+            isDicInDicTab = false;
+            isDicInKanjiTab = true;
+            dict.StopGetMeaing();
+            dict.StartGetMeaning(kanjiUserControl.TextBoxKanji.Text.ToLower());
+        }
+
+        private void tbxFindWord_TextChanged(object sender, EventArgs e)
+        {
+            isDicInWordTab = false;
+            isDicInDicTab = true;
+            isDicInKanjiTab = false;
+            dict.StopGetMeaing();
+            dict.StartGetMeaning(this.tbxFindWord.Text.ToLower());
         }
 
         private void txtKana_TextChanged(object sender, EventArgs e)
@@ -253,6 +283,8 @@ namespace JWord
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (!IsValidDataInput()) return;
+
             Database db = new Database();
             Word temp = new Word();
             temp.Id = SelectWord.Id;
@@ -270,10 +302,28 @@ namespace JWord
                 lvi.SubItems[1].Text = SelectWord.Kanji;
                 lvi.SubItems[2].Text = SelectWord.Kana;
                 lvi.SubItems[3].Text = SelectWord.Meaning;
-
+                this.btnUpdate.Enabled = false;
                 RefreshToMainForm();
             }
         }
+
+        bool IsValidDataInput()
+        {
+            //if (string.IsNullOrEmpty(txtKana.Text.Trim()))
+            //{
+            //    MessageBox.Show("Bạn cần chưa nhập vào từ Kana? Xin vui lòng  nhập vào trước khi cập nhật.");
+            //    txtKana.Focus();    
+            //    return false;
+            //}
+            //if (string.IsNullOrEmpty(txtVietnamese.Text.Trim()))
+            //{
+            //    MessageBox.Show("Bạn cần chưa nhập vào tiếng Việt của từ này? Xin vui lòng  nhập vào trước khi cập nhật.");
+            //    txtVietnamese.Focus();
+            //    return false;
+            //}
+            return true;
+        }
+
 
         private ListViewItem GetListViewItemByWord(Word word)
         {
@@ -294,6 +344,8 @@ namespace JWord
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!IsValidDataInput()) return;
+
             Word word = new Word();
             word.Kanji = this.txtKanji.Text;
             word.Kana = this.txtKana.Text;
@@ -351,19 +403,10 @@ namespace JWord
                 MessageBox.Show("Hãy chọn ít nhất một từ.","JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            Database db = new Database();
-            foreach (ListViewItem lvi in lviWordList.SelectedItems)
-            {
-                if (lvi.Tag != null && lvi.Tag is Word)
-                {
-                    Word word = lvi.Tag as Word;
-                    word.IsStudied = false;
-                    if (db.UpdateWord(word) >= 1)
-                    {
-                        lvi.Checked = false;
-                    }
-                }
-            }
+            SetUnStudied();
+            //System.Threading.Thread setThread = new System.Threading.Thread(SetUnStudied);
+            //setThread.Priority = System.Threading.ThreadPriority.Highest;
+            //setThread.Start();
         }
 
         private void btnSetStudied_Click(object sender, EventArgs e)
@@ -373,9 +416,15 @@ namespace JWord
                 MessageBox.Show("Hãy chọn ít nhất một từ.", "JWord", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            SetStudied();
+            //System.Threading.Thread setThread = new System.Threading.Thread(SetStudied);
+            //setThread.Priority = System.Threading.ThreadPriority.Highest;
+            //setThread.Start();
+        }
 
+        private void SetStudied()
+        {
             Database db = new Database();
-
             foreach (ListViewItem lvi in lviWordList.SelectedItems)
             {
                 if (lvi.Tag != null && lvi.Tag is Word)
@@ -385,6 +434,23 @@ namespace JWord
                     if (db.UpdateWord(word) >= 1)
                     {
                         lvi.Checked = true;
+                    }
+                }
+            }
+        }
+
+        private void SetUnStudied()
+        {
+            Database db = new Database();
+            foreach (ListViewItem lvi in lviWordList.SelectedItems)
+            {
+                if (lvi.Tag != null && lvi.Tag is Word)
+                {
+                    Word word = lvi.Tag as Word;
+                    word.IsStudied = true;
+                    if (db.UpdateWord(word) >= 1)
+                    {
+                        lvi.Checked = false;
                     }
                 }
             }
@@ -429,8 +495,29 @@ namespace JWord
         }
 
         private bool isVietNamese = true;
-        private VietKeyHandler keyHandler;// = new VietKeyHandler(txtVietnamese);
-        private KeyPressEventHandler keyPressHandler; //= new KeyPressEventHandler(keyHandler.OnKeyPress);
-        
+        private VietKeyHandler keyHandler;
+
+        private KeyPressEventHandler keyPressHandler;
+
+        //private void lviWordList_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Control && e.KeyValue == 65)
+        //    {
+        //        foreach (ListViewItem liv in lviWordList.Items)
+        //            liv.Selected = true;
+        //    }
+        //}
+
+        private void txtVietnamese_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Shift)
+            { 
+                picTyping_Click(picTyping, new EventArgs());
+            }
+        }
+
+        private bool isDicInWordTab = false;
+        private bool isDicInKanjiTab = false;
+        private bool isDicInDicTab = false;
     }
 }

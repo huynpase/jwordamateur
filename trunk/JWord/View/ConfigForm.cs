@@ -11,6 +11,13 @@ namespace JWord
     public partial class ConfigForm : Form
     {
         private MainForm parentWindow;
+        private KanjiLearning frmKanjiLearing;
+
+        public KanjiLearning FrmKanjiLearing
+        {
+            get { return frmKanjiLearing; }
+            set { frmKanjiLearing = value; }
+        }
 
         public MainForm ParentWindow
         {
@@ -165,7 +172,15 @@ namespace JWord
         /// <param name="e">event</param>
         private void ConfigForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            parentWindow.TmDelay.Start();
+            if (null == frmKanjiLearing)
+            {
+                parentWindow.TmDelay.Start();
+            }
+            else
+            {
+                parentWindow.TmDelay.Stop();
+                parentWindow.Opacity = 0;
+            }
         }
 
 
@@ -196,6 +211,12 @@ namespace JWord
             numUpdownTime.Value = (decimal)Configuration.FreezeTime;
             InitShowKanji(Configuration.ShowKanji);
 
+            //Init for learning Kanji
+            panelLockView.Visible = Configuration.ShowKanji;
+            chkShowKanji.Checked = Configuration.ShowKanji;
+            chkShowMeaning.Checked = Configuration.ShowMeaning;
+            chkShowOnyomi.Checked = Configuration.ShowOnyomi;
+            chkShowKunyomi.Checked = Configuration.ShowKunyomi;
         }
 
         /// <summary>
@@ -228,6 +249,53 @@ namespace JWord
         {
             rboShowKanjiYes.Checked = isShowKanji;
             rboShowKanjiNo.Checked = (!isShowKanji);
+        }
+
+        private void chkShowKanji_CheckedChanged(object sender, EventArgs e)
+        {
+            panelLockView.Visible = !chkShowKanji.Checked;
+            btnApplyForLearning.Enabled = true;
+        }
+
+        private void panelLockView_Click(object sender, EventArgs e)
+        {
+            chkShowKanji.Checked = true;
+            panelLockView.Visible = false;
+            btnApplyForLearning.Enabled = true;
+        }
+
+        private void chkShowMeaning_CheckedChanged(object sender, EventArgs e)
+        {
+            btnApplyForLearning.Enabled = true;
+        }
+
+        private void btnApplyForLearning_Click(object sender, EventArgs e)
+        {
+            SaveConfigForLearningKanji();
+            btnApplyForLearning.Enabled = false;
+        }
+
+        private void btnOKForLearning_Click(object sender, EventArgs e)
+        {
+            SaveConfigForLearningKanji();
+        }
+        private void SaveConfigForLearningKanji()
+        {
+            Configuration.ShowKanji = chkShowKanji.Checked;
+            Configuration.Config.ShowKanji = Configuration.ShowKanji;
+            Configuration.ShowMeaning = chkShowMeaning.Checked;
+            Configuration.Config.ShowMeaning = Configuration.ShowMeaning;
+            Configuration.ShowOnyomi = chkShowOnyomi.Checked;
+            Configuration.Config.ShowOnyomi = Configuration.ShowOnyomi;
+            Configuration.ShowKunyomi = chkShowKunyomi.Checked;
+            Configuration.Config.ShowKunyomi = Configuration.ShowKunyomi;
+            Configuration.Config.Save();
+            if (null != frmKanjiLearing)
+            {
+                frmKanjiLearing.RefeshData();
+                frmKanjiLearing.NextKanji();
+                frmKanjiLearing.Refresh();
+            }
         }
 
     }

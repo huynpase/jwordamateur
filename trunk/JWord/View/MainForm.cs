@@ -40,11 +40,18 @@ namespace JWord
         public MainForm()
         {
             InitializeComponent();
+            //this.initAttribute = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            //SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
         }
         
         private void MainForm_Load(object sender, EventArgs e)
         {
-            MainFormRefesh();   
+            MainFormRefesh();
+            //if (this.clickThrToolStripMenuItem.Checked)
+            //{
+            //    this.initAttribute = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            //    SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
+            //}
         }
 
         public void MainFormRefesh()
@@ -63,9 +70,22 @@ namespace JWord
 
             //Setup Transparent for window
             this.Opacity = Configuration.Opacity;
-            this.initAttribute = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
 
+            SetFormLocation();
+            
+            //Configuration.Position = 1;
+            this.tmDelay.Interval = Configuration.FreezeTime * 1000;
+            this.tmDelay.Start();
+            this.tmForGetMouseLocation.Interval = 100;
+            this.tmForGetMouseLocation.Start();
+            //Show the first word
+            GetData();
+            NextWord();
+        }
+
+
+        private void SetFormLocation()
+        {
             // Setup position for window
             Rectangle desk = Screen.GetWorkingArea(this.ClientRectangle);
             Rectangle scr = Screen.GetBounds(Screen.PrimaryScreen.Bounds);
@@ -92,13 +112,6 @@ namespace JWord
                     break;
 
             }
-            //Configuration.Position = 1;
-            this.tmDelay.Interval = Configuration.FreezeTime * 1000;
-            this.tmDelay.Start();
-
-            //Show the first word
-            GetData();
-            NextWord();
         }
 
         private void tmDelay_Tick(object sender, EventArgs e)
@@ -110,7 +123,7 @@ namespace JWord
         public void GetData()
         {
             Database db = new Database();
-            arr = db.GetData(GetDataType.Unstudied);
+            arr = db.GetWordData(GetDataType.Unstudied);
             numWord = arr.Count;
         }
         Word current = null;
@@ -150,6 +163,21 @@ namespace JWord
             {
                 this.lblMeaning.Font = new Font("Tahoma", 11, FontStyle.Regular);
             }
+
+            int oldHeight = this.Height;
+
+            if (string.IsNullOrEmpty( lblKanji.Text.Trim()))
+            {
+                this.Height = 125 - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
+            }
+            else
+            {
+                this.Height = 125;
+            }
+
+            if (oldHeight != this.Height)
+                SetFormLocation();
+
             this.Refresh();
         }
 
@@ -188,40 +216,66 @@ namespace JWord
         private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.tmDelay.Stop();
-            DataForm frm = new DataForm();
-            frm.parent = this;
-            frm.ShowDialog();
+            if (null != frmKanjiLearing)
+                frmKanjiLearing.Dispose();
+            if (null != frmData)
+            {
+                frmData.Activate();
+                return;
+            }
+
+            frmData = new DataForm();
+            frmData.parent = this;
+            frmData.ShowDialog();
+            frmData = null;
             this.tmDelay.Start();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.tmDelay.Stop();
-            ConfigForm frm = new ConfigForm();
-            frm.ParentWindow = this;
-            frm.ShowDialog();
-            this.tmDelay.Start();
+            if (null != frmConfig)
+            {
+                frmConfig.Activate();
+                return;
+            }
+            
+            frmConfig = new ConfigForm();
+            frmConfig.ParentWindow = this;
+            if (null != frmKanjiLearing)
+            {
+                frmConfig.FrmKanjiLearing = frmKanjiLearing;
+            }
+            frmConfig.ShowDialog();
+            frmConfig = null;
+            if (null == frmKanjiLearing)
+                this.tmDelay.Start();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            AboutForm frmAbout = new AboutForm();
+            if (null != frmAbout)
+            {
+                frmAbout.Activate();
+                return;
+            }
+            frmAbout = new AboutForm();
             frmAbout.ShowDialog();
+            frmAbout = null;
         }
 
-        private void clickThrToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!this.clickThrToolStripMenuItem.Checked)
-            {
-                SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute));
-            }
-            else
-            {
-                SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
-            }
-            //SetLayeredWindowAttributes(this.Handle, 0, Convert.ToByte(255 * clsConfiguration.defaultOpacity), LWA_ALPHA);
-        }
+        //private void clickThrToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (!this.clickThrToolStripMenuItem.Checked)
+        //    {
+        //        SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute));
+        //    }
+        //    else
+        //    {
+        //        SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
+        //    }
+        //    //SetLayeredWindowAttributes(this.Handle, 0, Convert.ToByte(255 * clsConfiguration.defaultOpacity), LWA_ALPHA);
+        //}
         
         private void contextMenuStrip1_Opened(object sender, EventArgs e)
         {
@@ -241,6 +295,71 @@ namespace JWord
                 SoundPlayer.Play(current.Kanji);
         }
 
-        
+        private void kanjiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tmDelay.Stop();
+            this.Opacity = 0;
+            if (null != frmKanjiLearing)
+            {
+                frmKanjiLearing.Activate();
+                return;
+            }
+            frmKanjiLearing = new KanjiLearning();
+            frmKanjiLearing.ShowDialog();
+            frmKanjiLearing = null;
+            this.Opacity = Configuration.Opacity;
+            this.tmDelay.Start();
+        }
+
+        private bool IsMouseEnter()
+        {
+            int xMouse = Control.MousePosition.X;
+            int yMouse = Control.MousePosition.Y;
+            
+            int xMin = this.Location.X;
+            int yMin = this.Location.Y;
+
+            int xMax = xMin + this.Width;
+            int yMax = yMin + this.Height;
+
+            return ((xMin <= xMouse) && (xMouse <= xMax)) && ((yMin <= yMouse) && (yMouse <= yMax));
+        }
+
+        private void tmForGetMouseLocation_Tick(object sender, EventArgs e)
+        {
+            if (IsMouseEnter() && Control.ModifierKeys != Keys.Control && this.Opacity!=0)
+            {
+                //this.Opacity = 0;
+                //Delay.FadeHide(this);
+                isHideCauseMouseInter = true;
+                for (float f = Configuration.Opacity; f >= 0F; f = f - 0.05F)
+                {
+                    this.Opacity = f;
+                    System.Threading.Thread.Sleep(5);
+                }
+                this.Opacity = 0;
+                this.tmDelay.Stop();
+            }
+            if (this.Opacity == 0 && (!IsMouseEnter()) && isHideCauseMouseInter)
+            {
+                //this.Opacity = Configuration.Opacity;
+                //Delay.FadeShow(this);
+                isHideCauseMouseInter = false;
+                for (float f = 0.0F; f < Configuration.Opacity; f = f + 0.05F)
+                {
+                    this.Opacity = f;
+                    System.Threading.Thread.Sleep(5);
+                }
+                this.Opacity = Configuration.Opacity;
+                this.tmDelay.Start();
+            }
+            
+        }
+
+        private KanjiLearning frmKanjiLearing = null;
+        private ConfigForm frmConfig = null;
+        private DataForm frmData = null;
+        private AboutForm frmAbout = null;
+        private bool isHideCauseMouseInter = false;
     }
 }

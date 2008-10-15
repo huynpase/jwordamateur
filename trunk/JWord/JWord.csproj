@@ -69,6 +69,7 @@
     <Compile Include="Control\ImageOpacity.cs" />
     <Compile Include="Control\PosType.cs" />
     <Compile Include="Control\RtfUtility.cs" />
+    <Compile Include="Control\SingleInstanceControl.cs" />
     <Compile Include="Control\SoundPlayer.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="View\ConfigForm.cs">
@@ -94,6 +95,18 @@
     </Compile>
     <Compile Include="Control\Delay.cs" />
     <Compile Include="Control\MoveHandler.cs" />
+    <Compile Include="View\KanjiLearning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\KanjiLearning.Designer.cs">
+      <DependentUpon>KanjiLearning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\KanjiUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\KanjiUC.Designer.cs">
+      <DependentUpon>KanjiUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +126,14 @@
     <EmbeddedResource Include="View\AboutForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\KanjiLearning.resx">
+      <DependentUpon>KanjiLearning.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\KanjiUC.resx">
+      <DependentUpon>KanjiUC.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <SubType>Designer</SubType>
@@ -144,12 +165,20 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Japan.ico" />
+    <None Include="Resources\back_off.png" />
+    <None Include="Resources\back_on.png" />
     <Content Include="Resources\bgBL.png" />
     <Content Include="Resources\bgBR.png" />
     <Content Include="Resources\bgTL.png" />
     <Content Include="Resources\bgTR.png" />
     <Content Include="Resources\en.png" />
+    <None Include="Resources\flag_china.png" />
     <Content Include="Resources\jwordDemo.png" />
+    <None Include="Resources\KanjiFrame.png" />
+    <None Include="Resources\noimage.png" />
+    <None Include="Resources\next_off.png" />
+    <None Include="Resources\next_on.png" />
+    <None Include="Resources\lockView.png" />
     <Content Include="Resources\screen.png" />
     <Content Include="Resources\vi.png" />
     <None Include="Resources\Desktop.png" />

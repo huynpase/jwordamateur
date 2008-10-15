@@ -54,13 +54,27 @@
             this.rdoViewAll = new System.Windows.Forms.RadioButton();
             this.btnSetStudied = new System.Windows.Forms.Button();
             this.btnSetUnstudied = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rtbMeaning = new System.Windows.Forms.RichTextBox();
-            this.toolTipTyping = new System.Windows.Forms.ToolTip(this.components);
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabWord = new System.Windows.Forms.TabPage();
+            this.groupBoxQuickDic = new System.Windows.Forms.GroupBox();
+            this.rtfQuickDic = new System.Windows.Forms.RichTextBox();
+            this.tabKanji = new System.Windows.Forms.TabPage();
+            this.kanjiUserControl = new JWord.KanjiUC();
+            this.tabDic = new System.Windows.Forms.TabPage();
+            this.groupBoxMeaning = new System.Windows.Forms.GroupBox();
+            this.lbFindWord = new System.Windows.Forms.Label();
+            this.tbxFindWord = new System.Windows.Forms.TextBox();
+            this.toolTipForTyping = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTyping)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tabWord.SuspendLayout();
+            this.groupBoxQuickDic.SuspendLayout();
+            this.tabKanji.SuspendLayout();
+            this.tabDic.SuspendLayout();
+            this.groupBoxMeaning.SuspendLayout();
             this.SuspendLayout();
             // 
             // lviWordList
@@ -107,6 +121,7 @@
             resources.ApplyResources(this.txtVietnamese, "txtVietnamese");
             this.txtVietnamese.Name = "txtVietnamese";
             this.txtVietnamese.TextChanged += new System.EventHandler(this.txtVietnamese_TextChanged);
+            this.txtVietnamese.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVietnamese_KeyDown);
             // 
             // txtKana
             // 
@@ -169,13 +184,11 @@
             // 
             // picTyping
             // 
-            this.picTyping.BackColor = System.Drawing.Color.Transparent;
-            this.picTyping.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picTyping.Image = global::JWord.Properties.Resources.vi;
             resources.ApplyResources(this.picTyping, "picTyping");
             this.picTyping.Name = "picTyping";
             this.picTyping.TabStop = false;
-            this.toolTipTyping.SetToolTip(this.picTyping, resources.GetString("picTyping.ToolTip"));
+            this.toolTipForTyping.SetToolTip(this.picTyping, resources.GetString("picTyping.ToolTip"));
             this.picTyping.Click += new System.EventHandler(this.picTyping_Click);
             // 
             // btnClearText
@@ -243,29 +256,94 @@
             this.btnSetUnstudied.UseVisualStyleBackColor = true;
             this.btnSetUnstudied.Click += new System.EventHandler(this.btnSetUnstudied_Click);
             // 
-            // groupBox3
-            // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Controls.Add(this.rtbMeaning);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
             // rtbMeaning
             // 
             resources.ApplyResources(this.rtbMeaning, "rtbMeaning");
-            this.rtbMeaning.BackColor = System.Drawing.Color.LightYellow;
-            this.rtbMeaning.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbMeaning.BackColor = System.Drawing.SystemColors.Control;
+            this.rtbMeaning.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbMeaning.Name = "rtbMeaning";
+            // 
+            // tabControl
+            // 
+            resources.ApplyResources(this.tabControl, "tabControl");
+            this.tabControl.Controls.Add(this.tabWord);
+            this.tabControl.Controls.Add(this.tabKanji);
+            this.tabControl.Controls.Add(this.tabDic);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            // 
+            // tabWord
+            // 
+            this.tabWord.Controls.Add(this.groupBoxQuickDic);
+            this.tabWord.Controls.Add(this.lviWordList);
+            this.tabWord.Controls.Add(this.groupBox2);
+            this.tabWord.Controls.Add(this.groupBox1);
+            resources.ApplyResources(this.tabWord, "tabWord");
+            this.tabWord.Name = "tabWord";
+            this.tabWord.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxQuickDic
+            // 
+            resources.ApplyResources(this.groupBoxQuickDic, "groupBoxQuickDic");
+            this.groupBoxQuickDic.Controls.Add(this.rtfQuickDic);
+            this.groupBoxQuickDic.Name = "groupBoxQuickDic";
+            this.groupBoxQuickDic.TabStop = false;
+            // 
+            // rtfQuickDic
+            // 
+            resources.ApplyResources(this.rtfQuickDic, "rtfQuickDic");
+            this.rtfQuickDic.Name = "rtfQuickDic";
+            // 
+            // tabKanji
+            // 
+            this.tabKanji.Controls.Add(this.kanjiUserControl);
+            resources.ApplyResources(this.tabKanji, "tabKanji");
+            this.tabKanji.Name = "tabKanji";
+            this.tabKanji.UseVisualStyleBackColor = true;
+            // 
+            // kanjiUserControl
+            // 
+            resources.ApplyResources(this.kanjiUserControl, "kanjiUserControl");
+            this.kanjiUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.kanjiUserControl.Name = "kanjiUserControl";
+            // 
+            // tabDic
+            // 
+            this.tabDic.BackColor = System.Drawing.Color.Transparent;
+            this.tabDic.Controls.Add(this.groupBoxMeaning);
+            this.tabDic.Controls.Add(this.lbFindWord);
+            this.tabDic.Controls.Add(this.tbxFindWord);
+            resources.ApplyResources(this.tabDic, "tabDic");
+            this.tabDic.Name = "tabDic";
+            // 
+            // groupBoxMeaning
+            // 
+            resources.ApplyResources(this.groupBoxMeaning, "groupBoxMeaning");
+            this.groupBoxMeaning.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxMeaning.Controls.Add(this.rtbMeaning);
+            this.groupBoxMeaning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBoxMeaning.Name = "groupBoxMeaning";
+            this.groupBoxMeaning.TabStop = false;
+            // 
+            // lbFindWord
+            // 
+            resources.ApplyResources(this.lbFindWord, "lbFindWord");
+            this.lbFindWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbFindWord.Name = "lbFindWord";
+            // 
+            // tbxFindWord
+            // 
+            resources.ApplyResources(this.tbxFindWord, "tbxFindWord");
+            this.tbxFindWord.Name = "tbxFindWord";
+            this.tbxFindWord.TextChanged += new System.EventHandler(this.tbxFindWord_TextChanged);
             // 
             // DataForm
             // 
             this.AcceptButton = this.btnAdd;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lviWordList);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DataForm";
             this.Load += new System.EventHandler(this.DataForm_Load);
@@ -275,7 +353,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTyping)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tabWord.ResumeLayout(false);
+            this.groupBoxQuickDic.ResumeLayout(false);
+            this.tabKanji.ResumeLayout(false);
+            this.tabDic.ResumeLayout(false);
+            this.tabDic.PerformLayout();
+            this.groupBoxMeaning.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -305,10 +389,19 @@
         private System.Windows.Forms.Button btnSetStudied;
         private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.Button btnClearText;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox rtbMeaning;
         private System.Windows.Forms.PictureBox picTyping;
-        private System.Windows.Forms.ToolTip toolTipTyping;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabDic;
+        private System.Windows.Forms.TabPage tabWord;
+        private System.Windows.Forms.TabPage tabKanji;
+        private System.Windows.Forms.Label lbFindWord;
+        private System.Windows.Forms.TextBox tbxFindWord;
+        private System.Windows.Forms.GroupBox groupBoxMeaning;
+        private KanjiUC kanjiUserControl;
+        private System.Windows.Forms.ToolTip toolTipForTyping;
+        private System.Windows.Forms.GroupBox groupBoxQuickDic;
+        private System.Windows.Forms.RichTextBox rtfQuickDic;
 
     }
 }
