@@ -64,6 +64,10 @@ namespace JWord
                 if (null!=w.Kana || string.Empty != w.Kana||
                     null != w.Meaning || string.Empty != w.Meaning)
                 {
+                    w.Kana = null == w.Kana ? string.Empty : w.Kana;
+                    w.Kanji = null == w.Kanji ? string.Empty : w.Kanji;
+                    w.Meaning = null == w.Meaning ? string.Empty : w.Meaning;
+                    w.Romanji = null == w.Romanji ? string.Empty : w.Romanji;
                     arr.Add(w);
                 }
             }
@@ -120,9 +124,12 @@ namespace JWord
                     continue;
                 }
 
-                if (null != k.StrKanji || string.Empty != k.StrKanji ||
-                    null != k.StrMeaning || string.Empty != k.StrMeaning )
+                if (null != k.StrKanji && !string.IsNullOrEmpty(k.StrKanji.Trim()) &&
+                    null != k.StrMeaning && !string.IsNullOrEmpty(k.StrMeaning.Trim()) )
                 {
+                    k.StrAmon = null == k.StrAmon ? string.Empty : k.StrAmon;
+                    k.StrAmkun = null == k.StrAmkun ? string.Empty : k.StrAmkun;
+                    k.StrSample = null == k.StrSample ? string.Empty : k.StrSample;
                     arr.Add(k);
                 }
             }

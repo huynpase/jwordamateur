@@ -27,7 +27,11 @@ namespace JWord
             }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
             Application.Run(new MainForm());
+                      
+            //Application.SetSuspendState(PowerState.Hibernate,false, false);
+            
         }
     }
 }

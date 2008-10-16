@@ -40,6 +40,7 @@ namespace JWord
         public MainForm()
         {
             InitializeComponent();
+            maxHeight = this.Height;
             //this.initAttribute = GetWindowLong(this.Handle, GWL_EXSTYLE);
             //SetWindowLong(this.Handle, GWL_EXSTYLE, (IntPtr)(initAttribute ^ TRANSPARENT));
         }
@@ -58,11 +59,11 @@ namespace JWord
         {
             if (!Configuration.ShowKanji)
             {
-                this.Height = 125 - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
+                this.Height = maxHeight - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
             }
             else
             {
-                this.Height = 125;
+                this.Height = maxHeight;
             }
 
             // Show notification
@@ -139,23 +140,43 @@ namespace JWord
 
             lblKana.Text = w.Kana;
             
-            if (w.Kana.Length <= 6)
+            if (null != w.Kana && 6 >= w.Kana.Length)
             {
                 this.lblKana.Font = new Font("Tahoma", 18, FontStyle.Bold);
             }
-            else if (w.Kana.Length <= 12)
+            else if (null != w.Kana && w.Kana.Length <= 12)
             {
                 this.lblKana.Font = new Font("Tahoma", 14, FontStyle.Bold);
             }
-            else
+            else if (null != w.Kana && w.Kana.Length <= 17)
             {
-                this.lblKana.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                this.lblKana.Font = new Font("Tahoma", 11, FontStyle.Bold);
+            }
+            else if (null != w.Kana)
+            {
+                this.lblKana.Font = new Font("Tahoma", 8, FontStyle.Bold);
             }
 
             lblKanji.Text = w.Kanji;
+            if (null != w.Kanji && 6 >= w.Kanji.Length)
+            {
+                this.lblKanji.Font = new Font("Tahoma", 18, FontStyle.Bold);
+            }
+            else if (null != w.Kanji && w.Kanji.Length <= 12)
+            {
+                this.lblKanji.Font = new Font("Tahoma", 13, FontStyle.Bold);
+            }
+            else if (null != w.Kanji && w.Kanji.Length <= 17)
+            {
+                this.lblKanji.Font = new Font("Tahoma", 10, FontStyle.Bold);
+            }
+            else if (null != w.Kanji)
+            {
+                this.lblKanji.Font = new Font("Tahoma", 8, FontStyle.Bold);
+            }
             
             lblMeaning.Text = w.Meaning;
-            if (w.Meaning.Length <= 10)
+            if (null != w.Meaning && 10 >= w.Meaning.Length)
             {
                 this.lblMeaning.Font = new Font("Tahoma", 13, FontStyle.Regular);
             }
@@ -168,11 +189,11 @@ namespace JWord
 
             if (string.IsNullOrEmpty( lblKanji.Text.Trim()))
             {
-                this.Height = 125 - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
+                this.Height = maxHeight - (int)this.tableLayoutPanel1.RowStyles[0].Height - 7;
             }
             else
             {
-                this.Height = 125;
+                this.Height = maxHeight;
             }
 
             if (oldHeight != this.Height)
@@ -361,5 +382,6 @@ namespace JWord
         private DataForm frmData = null;
         private AboutForm frmAbout = null;
         private bool isHideCauseMouseInter = false;
+        private int maxHeight;
     }
 }

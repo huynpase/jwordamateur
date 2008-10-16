@@ -106,6 +106,12 @@ namespace JWord
                 picShowKanjiImg.Image = null;
                 return;
             }
+            if (null == kanji.StrKanji)
+            {
+                picShowKanjiImg.ImageLocation = string.Empty;
+                return;
+            }
+
             int codeInt = Convert.ToInt32(kanji.StrKanji[0]);
             string codeHexa = ToHex(codeInt);
             picShowKanjiImg.ImageLocation = string.Format(@"Kanji\{0}.gif", codeHexa);

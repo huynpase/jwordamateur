@@ -868,7 +868,7 @@
     <value>kanjiUserControl</value>
   </data>
   <data name="&gt;&gt;kanjiUserControl.Type" xml:space="preserve">
-    <value>JWord.KanjiUC, JWord, Version=2.1.3210.30851, Culture=neutral, PublicKeyToken=null</value>
+    <value>JWord.KanjiUC, JWord, Version=2.1.3211.27248, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;kanjiUserControl.Parent" xml:space="preserve">
     <value>tabKanji</value>
