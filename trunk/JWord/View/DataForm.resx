@@ -528,6 +528,33 @@
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 19</value>
+  </data>
+  <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 58</value>
+  </data>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Thống kê từ:</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="rdoViewUnStudied.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
@@ -538,7 +565,7 @@
     <value>On</value>
   </data>
   <data name="rdoViewUnStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 19</value>
+    <value>157, 19</value>
   </data>
   <data name="rdoViewUnStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 17</value>
@@ -559,7 +586,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;rdoViewUnStudied.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="rdoViewStudied.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -571,7 +598,7 @@
     <value>On</value>
   </data>
   <data name="rdoViewStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 19</value>
+    <value>284, 19</value>
   </data>
   <data name="rdoViewStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 17</value>
@@ -592,7 +619,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;rdoViewStudied.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnDeleteAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -601,7 +628,7 @@
     <value>On</value>
   </data>
   <data name="btnDeleteAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>384, 46</value>
+    <value>418, 46</value>
   </data>
   <data name="btnDeleteAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -622,7 +649,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btnDeleteAll.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="rdoViewAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
@@ -634,7 +661,7 @@
     <value>On</value>
   </data>
   <data name="rdoViewAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 19</value>
+    <value>400, 19</value>
   </data>
   <data name="rdoViewAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 17</value>
@@ -655,7 +682,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;rdoViewAll.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnSetStudied.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -664,7 +691,7 @@
     <value>On</value>
   </data>
   <data name="btnSetStudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 46</value>
+    <value>287, 46</value>
   </data>
   <data name="btnSetStudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -685,7 +712,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btnSetStudied.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="btnSetUnstudied.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -694,7 +721,7 @@
     <value>On</value>
   </data>
   <data name="btnSetUnstudied.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 46</value>
+    <value>157, 46</value>
   </data>
   <data name="btnSetUnstudied.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -715,7 +742,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btnSetUnstudied.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 207</value>
@@ -868,7 +895,7 @@
     <value>kanjiUserControl</value>
   </data>
   <data name="&gt;&gt;kanjiUserControl.Type" xml:space="preserve">
-    <value>JWord.KanjiUC, JWord, Version=2.1.3211.27248, Culture=neutral, PublicKeyToken=null</value>
+    <value>JWord.KanjiUC, JWord, Version=2.1.3212.1936, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;kanjiUserControl.Parent" xml:space="preserve">
     <value>tabKanji</value>

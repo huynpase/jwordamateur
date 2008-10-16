@@ -16,125 +16,131 @@ namespace JWord
 
         public List<Word> GetWordData(GetDataType type)
         {
-            List<Word> arr = new List<Word>();
-            OleDbConnection cn = new OleDbConnection(ConnectionString);
-            cn.Open();
-            
-            OleDbCommand cmd;
-            if (type == GetDataType.All)
+            lock (this)
             {
-                cmd = new OleDbCommand("SELECT * FROM WORDS ",cn);
-            }
-            else if (type == GetDataType.Studied)
-            {
-                cmd = new OleDbCommand("SELECT * FROM WORDS WHERE Hide = true", cn);
-            }
-            else
-            {
-                cmd = new OleDbCommand("SELECT * FROM WORDS WHERE Hide = false", cn);
-            }
+                List<Word> arr = new List<Word>();
+                OleDbConnection cn = new OleDbConnection(ConnectionString);
+                cn.Open();
 
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            
-            DataTable dt = new DataTable();
-            int i = da.Fill(dt);
-            if (i == 0)
-            {
+                OleDbCommand cmd;
+                if (type == GetDataType.All)
+                {
+                    cmd = new OleDbCommand("SELECT * FROM WORDS ", cn);
+                }
+                else if (type == GetDataType.Studied)
+                {
+                    cmd = new OleDbCommand("SELECT * FROM WORDS WHERE Hide = true", cn);
+                }
+                else
+                {
+                    cmd = new OleDbCommand("SELECT * FROM WORDS WHERE Hide = false", cn);
+                }
+
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                int i = da.Fill(dt);
+                if (i == 0)
+                {
+                    cn.Close();
+                    return arr;
+                }
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Word w = new Word();
+
+                    try
+                    {
+                        w.Id = (int)dr["Id"];
+                        w.Kanji = dr["Kanji"] as string;
+                        w.Kana = dr["Kana"] as string;
+                        w.Meaning = dr["Meaning"] as string;
+                        w.IsStudied = (bool)dr["Hide"];
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+
+                    if (null != w.Kana || string.Empty != w.Kana ||
+                        null != w.Meaning || string.Empty != w.Meaning)
+                    {
+                        w.Kana = null == w.Kana ? string.Empty : w.Kana;
+                        w.Kanji = null == w.Kanji ? string.Empty : w.Kanji;
+                        w.Meaning = null == w.Meaning ? string.Empty : w.Meaning;
+                        w.Romanji = null == w.Romanji ? string.Empty : w.Romanji;
+                        arr.Add(w);
+                    }
+                }
                 cn.Close();
                 return arr;
             }
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                Word w = new Word();
-
-                try
-                {
-                    w.Id = (int)dr["Id"];
-                    w.Kanji = dr["Kanji"] as string;
-                    w.Kana = dr["Kana"] as string;
-                    w.Meaning = dr["Meaning"] as string;
-                    w.IsStudied = (bool)dr["Hide"];
-                }
-                catch
-                {
-                    continue;
-                }
-
-                if (null!=w.Kana || string.Empty != w.Kana||
-                    null != w.Meaning || string.Empty != w.Meaning)
-                {
-                    w.Kana = null == w.Kana ? string.Empty : w.Kana;
-                    w.Kanji = null == w.Kanji ? string.Empty : w.Kanji;
-                    w.Meaning = null == w.Meaning ? string.Empty : w.Meaning;
-                    w.Romanji = null == w.Romanji ? string.Empty : w.Romanji;
-                    arr.Add(w);
-                }
-            }
-            cn.Close();
-            return arr;
         }
 
         public List<Kanji> GetKanjiData(GetDataType type)
         {
-            List<Kanji> arr = new List<Kanji>();
-            OleDbConnection cn = new OleDbConnection(ConnectionString);
-            cn.Open();
+            lock (this)
+            {
+                List<Kanji> arr = new List<Kanji>();
+                OleDbConnection cn = new OleDbConnection(ConnectionString);
+                cn.Open();
 
-            OleDbCommand cmd;
-            if (type == GetDataType.All)
-            {
-                cmd = new OleDbCommand("SELECT * FROM KANJI ", cn);
-            }
-            else if (type == GetDataType.Studied)
-            {
-                cmd = new OleDbCommand("SELECT * FROM KANJI WHERE Hide = true", cn);
-            }
-            else
-            {
-                cmd = new OleDbCommand("SELECT * FROM KANJI WHERE Hide = false", cn);
-            }
+                OleDbCommand cmd;
+                if (type == GetDataType.All)
+                {
+                    cmd = new OleDbCommand("SELECT * FROM KANJI ", cn);
+                }
+                else if (type == GetDataType.Studied)
+                {
+                    cmd = new OleDbCommand("SELECT * FROM KANJI WHERE Hide = true", cn);
+                }
+                else
+                {
+                    cmd = new OleDbCommand("SELECT * FROM KANJI WHERE Hide = false", cn);
+                }
 
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 
-            DataTable dt = new DataTable();
-            int i = da.Fill(dt);
-            if (i == 0)
-            {
+                DataTable dt = new DataTable();
+                int i = da.Fill(dt);
+                if (i == 0)
+                {
+                    cn.Close();
+                    return arr;
+                }
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Kanji k = new Kanji();
+
+                    try
+                    {
+                        k.Id = (int)dr["Id"];
+                        k.StrKanji = dr["Kanji"] as string;
+                        k.StrAmon = dr["Amon"] as string;
+                        k.StrAmkun = dr["Amkun"] as string;
+                        k.StrMeaning = dr["Meaning"] as string;
+                        k.StrSample = dr["Sample"] as string;
+                        k.IsStudied = (bool)dr["Hide"];
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+
+                    if (null != k.StrKanji && !string.IsNullOrEmpty(k.StrKanji.Trim()) &&
+                        null != k.StrMeaning && !string.IsNullOrEmpty(k.StrMeaning.Trim()))
+                    {
+                        k.StrAmon = null == k.StrAmon ? string.Empty : k.StrAmon;
+                        k.StrAmkun = null == k.StrAmkun ? string.Empty : k.StrAmkun;
+                        k.StrSample = null == k.StrSample ? string.Empty : k.StrSample;
+                        arr.Add(k);
+                    }
+                }
                 cn.Close();
                 return arr;
             }
-
-            foreach (DataRow dr in dt.Rows)
-            {
-                Kanji k = new Kanji();
-
-                try
-                {
-                    k.Id = (int)dr["Id"];
-                    k.StrKanji = dr["Kanji"] as string;
-                    k.StrAmon = dr["Amon"] as string;
-                    k.StrAmkun = dr["Amkun"] as string;
-                    k.StrMeaning = dr["Meaning"] as string;
-                    k.StrSample = dr["Sample"] as string;
-                    k.IsStudied = (bool)dr["Hide"];
-                }
-                catch
-                {
-                    continue;
-                }
-
-                if (null != k.StrKanji && !string.IsNullOrEmpty(k.StrKanji.Trim()) &&
-                    null != k.StrMeaning && !string.IsNullOrEmpty(k.StrMeaning.Trim()) )
-                {
-                    k.StrAmon = null == k.StrAmon ? string.Empty : k.StrAmon;
-                    k.StrAmkun = null == k.StrAmkun ? string.Empty : k.StrAmkun;
-                    k.StrSample = null == k.StrSample ? string.Empty : k.StrSample;
-                    arr.Add(k);
-                }
-            }
-            cn.Close();
-            return arr;
         }
 
         #endregion
@@ -143,39 +149,45 @@ namespace JWord
 
         public int DeleteWord(Word word)
         {
-            try
+            lock (this)
             {
-                OleDbConnection cn = new OleDbConnection(ConnectionString);
-                cn.Open();
-                OleDbCommand cmd = new OleDbCommand("DeleteWord", cn);
-                cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
-                cmd.CommandType = CommandType.StoredProcedure;
-                int ret = cmd.ExecuteNonQuery();
-                cn.Close();
-                return ret;
-            }
-            catch
-            {
-                return 0;
+                try
+                {
+                    OleDbConnection cn = new OleDbConnection(ConnectionString);
+                    cn.Open();
+                    OleDbCommand cmd = new OleDbCommand("DeleteWord", cn);
+                    cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    int ret = cmd.ExecuteNonQuery();
+                    cn.Close();
+                    return ret;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
 
         public int DeleteKanji(Kanji kanji)
         {
-            try
+            lock (this)
             {
-                OleDbConnection cn = new OleDbConnection(ConnectionString);
-                cn.Open();
-                OleDbCommand cmd = new OleDbCommand("DeleteKanji", cn);
-                cmd.Parameters.Add(new OleDbParameter("@Id", kanji.Id));
-                cmd.CommandType = CommandType.StoredProcedure;
-                int ret = cmd.ExecuteNonQuery();
-                cn.Close();
-                return ret;
-            }
-            catch
-            {
-                return 0;
+                try
+                {
+                    OleDbConnection cn = new OleDbConnection(ConnectionString);
+                    cn.Open();
+                    OleDbCommand cmd = new OleDbCommand("DeleteKanji", cn);
+                    cmd.Parameters.Add(new OleDbParameter("@Id", kanji.Id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    int ret = cmd.ExecuteNonQuery();
+                    cn.Close();
+                    return ret;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
 
@@ -185,49 +197,55 @@ namespace JWord
 
         public int UpdateWord(Word word)
         {
-            try
+            lock (this)
             {
-                OleDbConnection cn = new OleDbConnection(ConnectionString);
-                cn.Open();
-                OleDbCommand cmd = new OleDbCommand("UpdateWord", cn);
-                cmd.Parameters.Add(new OleDbParameter("@Kanji", null != word.Kanji?word.Kanji:string.Empty));
-                cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
-                cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
-                cmd.Parameters.Add(new OleDbParameter("@Hide", word.IsStudied));
-                cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
-                cmd.CommandType = CommandType.StoredProcedure;
-                int ret = cmd.ExecuteNonQuery();
-                cn.Close();
-                return ret;
-            }
-            catch
-            {
-                return 0;
+                try
+                {
+                    OleDbConnection cn = new OleDbConnection(ConnectionString);
+                    cn.Open();
+                    OleDbCommand cmd = new OleDbCommand("UpdateWord", cn);
+                    cmd.Parameters.Add(new OleDbParameter("@Kanji", null != word.Kanji ? word.Kanji : string.Empty));
+                    cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
+                    cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
+                    cmd.Parameters.Add(new OleDbParameter("@Hide", word.IsStudied));
+                    cmd.Parameters.Add(new OleDbParameter("@Id", word.Id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    int ret = cmd.ExecuteNonQuery();
+                    cn.Close();
+                    return ret;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
 
         public int UpdateKanji(Kanji kanji)
         {
-            try
+            lock (this)
             {
-                OleDbConnection cn = new OleDbConnection(ConnectionString);
-                cn.Open();
-                OleDbCommand cmd = new OleDbCommand("UpdateKanji", cn);
-                cmd.Parameters.Add(new OleDbParameter("@Id", kanji.Id));
-                cmd.Parameters.Add(new OleDbParameter("@Kanji", kanji.StrKanji));
-                cmd.Parameters.Add(new OleDbParameter("@Amon", null != kanji.StrAmon ? kanji.StrAmon : string.Empty));
-                cmd.Parameters.Add(new OleDbParameter("@Amkun", null != kanji.StrAmkun ? kanji.StrAmkun : string.Empty));
-                cmd.Parameters.Add(new OleDbParameter("@Meaning",kanji.StrMeaning));
-                cmd.Parameters.Add(new OleDbParameter("@Sample", null != kanji.StrSample ? kanji.StrSample : string.Empty));
-                cmd.Parameters.Add(new OleDbParameter("@Hide", kanji.IsStudied));
-                cmd.CommandType = CommandType.StoredProcedure;
-                int ret = cmd.ExecuteNonQuery();
-                cn.Close();
-                return ret;
-            }
-            catch
-            {
-                return 0;
+                try
+                {
+                    OleDbConnection cn = new OleDbConnection(ConnectionString);
+                    cn.Open();
+                    OleDbCommand cmd = new OleDbCommand("UpdateKanji", cn);
+                    cmd.Parameters.Add(new OleDbParameter("@Id", kanji.Id));
+                    cmd.Parameters.Add(new OleDbParameter("@Kanji", kanji.StrKanji));
+                    cmd.Parameters.Add(new OleDbParameter("@Amon", null != kanji.StrAmon ? kanji.StrAmon : string.Empty));
+                    cmd.Parameters.Add(new OleDbParameter("@Amkun", null != kanji.StrAmkun ? kanji.StrAmkun : string.Empty));
+                    cmd.Parameters.Add(new OleDbParameter("@Meaning", kanji.StrMeaning));
+                    cmd.Parameters.Add(new OleDbParameter("@Sample", null != kanji.StrSample ? kanji.StrSample : string.Empty));
+                    cmd.Parameters.Add(new OleDbParameter("@Hide", kanji.IsStudied));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    int ret = cmd.ExecuteNonQuery();
+                    cn.Close();
+                    return ret;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
 
@@ -237,47 +255,53 @@ namespace JWord
 
         public int InsertWord(Word word)
         {
-            try
+            lock (this)
             {
-                OleDbConnection cn = new OleDbConnection(ConnectionString);
-                cn.Open();
-                OleDbCommand cmd = new OleDbCommand("InsertWord", cn);
-                cmd.Parameters.Add(new OleDbParameter("@Kanji", word.Kanji));
-                cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
-                cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
-                cmd.Parameters.Add(new OleDbParameter("@Hide", word.IsStudied));
-                cmd.CommandType = CommandType.StoredProcedure;
-                int ret = cmd.ExecuteNonQuery();
-                cn.Close();
-                return ret;
-            }
-            catch
-            {
-                return 0;
+                try
+                {
+                    OleDbConnection cn = new OleDbConnection(ConnectionString);
+                    cn.Open();
+                    OleDbCommand cmd = new OleDbCommand("InsertWord", cn);
+                    cmd.Parameters.Add(new OleDbParameter("@Kanji", word.Kanji));
+                    cmd.Parameters.Add(new OleDbParameter("@Kana", word.Kana));
+                    cmd.Parameters.Add(new OleDbParameter("@Meaning", word.Meaning));
+                    cmd.Parameters.Add(new OleDbParameter("@Hide", word.IsStudied));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    int ret = cmd.ExecuteNonQuery();
+                    cn.Close();
+                    return ret;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
 
         public int InsertKanji(Kanji kanji)
         {
-            try
+            lock (this)
             {
-                OleDbConnection cn = new OleDbConnection(ConnectionString);
-                cn.Open();
-                OleDbCommand cmd = new OleDbCommand("InsertKanji", cn);
-                cmd.Parameters.Add(new OleDbParameter("@Kanji", kanji.StrKanji));
-                cmd.Parameters.Add(new OleDbParameter("@Amon", kanji.StrAmon));
-                cmd.Parameters.Add(new OleDbParameter("@Amkun", kanji.StrAmkun));
-                cmd.Parameters.Add(new OleDbParameter("@Meaning", kanji.StrMeaning));
-                cmd.Parameters.Add(new OleDbParameter("@Sample", kanji.StrSample));
-                cmd.Parameters.Add(new OleDbParameter("@Hide", kanji.IsStudied));
-                cmd.CommandType = CommandType.StoredProcedure;
-                int ret = cmd.ExecuteNonQuery();
-                cn.Close();
-                return ret;
-            }
-            catch
-            {
-                return 0;
+                try
+                {
+                    OleDbConnection cn = new OleDbConnection(ConnectionString);
+                    cn.Open();
+                    OleDbCommand cmd = new OleDbCommand("InsertKanji", cn);
+                    cmd.Parameters.Add(new OleDbParameter("@Kanji", kanji.StrKanji));
+                    cmd.Parameters.Add(new OleDbParameter("@Amon", kanji.StrAmon));
+                    cmd.Parameters.Add(new OleDbParameter("@Amkun", kanji.StrAmkun));
+                    cmd.Parameters.Add(new OleDbParameter("@Meaning", kanji.StrMeaning));
+                    cmd.Parameters.Add(new OleDbParameter("@Sample", kanji.StrSample));
+                    cmd.Parameters.Add(new OleDbParameter("@Hide", kanji.IsStudied));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    int ret = cmd.ExecuteNonQuery();
+                    cn.Close();
+                    return ret;
+                }
+                catch
+                {
+                    return 0;
+                }
             }
         }
         
@@ -287,38 +311,65 @@ namespace JWord
 
         public Word GetLastWord()
         {
-            OleDbConnection cn = new OleDbConnection(ConnectionString);
-            cn.Open();
-            OleDbCommand cmd = new OleDbCommand("GetLastWord", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            int i = da.Fill(dt);
-            Word w = null;
-
-            if (dt.Rows.Count > 0)
+            lock (this)
             {
-                DataRow dr = dt.Rows[0];
-                
-                try
+                OleDbConnection cn = new OleDbConnection(ConnectionString);
+                cn.Open();
+                OleDbCommand cmd = new OleDbCommand("GetLastWord", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                int i = da.Fill(dt);
+                Word w = null;
+
+                if (dt.Rows.Count > 0)
                 {
-                    w = new Word();
-                    w.Id = (int)dr["Id"];
-                    w.Kanji = (string)dr["Kanji"];
-                    w.Kana = (string)dr["Kana"];
-                    w.Meaning = (string)dr["Meaning"];
-                    w.IsStudied = (bool)dr["Hide"];
+                    DataRow dr = dt.Rows[0];
+
+                    try
+                    {
+                        w = new Word();
+                        w.Id = (int)dr["Id"];
+                        w.Kanji = (string)dr["Kanji"];
+                        w.Kana = (string)dr["Kana"];
+                        w.Meaning = (string)dr["Meaning"];
+                        w.IsStudied = (bool)dr["Hide"];
+                    }
+                    catch
+                    {
+                    }
                 }
-                catch
-                {
-                }
+                cn.Close();
+                return w;
             }
-            cn.Close();
-            return w;
         }
 
         #endregion
+
+        public int GetWordCount(GetDataType type)
+        {
+            lock (this)
+            {
+                OleDbConnection cn = new OleDbConnection(ConnectionString);
+                cn.Open();
+
+                OleDbCommand cmd;
+                if (type == GetDataType.All)
+                {
+                    cmd = new OleDbCommand("SELECT Count(Words.ID) FROM Words", cn);
+                }
+                else if (type == GetDataType.Studied)
+                {
+                    cmd = new OleDbCommand("SELECT Count(Words.ID) FROM Words Where(Words.Hide=true)", cn);
+                }
+                else
+                {
+                    cmd = new OleDbCommand("SELECT Count(Words.ID) FROM Words Where(Words.Hide=false)", cn);
+                }
+                return (int)cmd.ExecuteScalar();
+            }
+        }
     }
 
     public enum GetDataType{

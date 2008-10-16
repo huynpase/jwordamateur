@@ -48,6 +48,7 @@
             this.picTyping = new System.Windows.Forms.PictureBox();
             this.btnClearText = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.rdoViewUnStudied = new System.Windows.Forms.RadioButton();
             this.rdoViewStudied = new System.Windows.Forms.RadioButton();
             this.btnDeleteAll = new System.Windows.Forms.Button();
@@ -60,12 +61,12 @@
             this.groupBoxQuickDic = new System.Windows.Forms.GroupBox();
             this.rtfQuickDic = new System.Windows.Forms.RichTextBox();
             this.tabKanji = new System.Windows.Forms.TabPage();
-            this.kanjiUserControl = new JWord.KanjiUC();
             this.tabDic = new System.Windows.Forms.TabPage();
             this.groupBoxMeaning = new System.Windows.Forms.GroupBox();
             this.lbFindWord = new System.Windows.Forms.Label();
             this.tbxFindWord = new System.Windows.Forms.TextBox();
             this.toolTipForTyping = new System.Windows.Forms.ToolTip(this.components);
+            this.kanjiUserControl = new JWord.KanjiUC();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTyping)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -201,6 +202,7 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.rdoViewUnStudied);
             this.groupBox2.Controls.Add(this.rdoViewStudied);
             this.groupBox2.Controls.Add(this.btnDeleteAll);
@@ -209,6 +211,12 @@
             this.groupBox2.Controls.Add(this.btnSetUnstudied);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
             // 
             // rdoViewUnStudied
             // 
@@ -301,12 +309,6 @@
             this.tabKanji.Name = "tabKanji";
             this.tabKanji.UseVisualStyleBackColor = true;
             // 
-            // kanjiUserControl
-            // 
-            resources.ApplyResources(this.kanjiUserControl, "kanjiUserControl");
-            this.kanjiUserControl.BackColor = System.Drawing.Color.Transparent;
-            this.kanjiUserControl.Name = "kanjiUserControl";
-            // 
             // tabDic
             // 
             this.tabDic.BackColor = System.Drawing.Color.Transparent;
@@ -337,6 +339,12 @@
             this.tbxFindWord.Name = "tbxFindWord";
             this.tbxFindWord.TextChanged += new System.EventHandler(this.tbxFindWord_TextChanged);
             // 
+            // kanjiUserControl
+            // 
+            resources.ApplyResources(this.kanjiUserControl, "kanjiUserControl");
+            this.kanjiUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.kanjiUserControl.Name = "kanjiUserControl";
+            // 
             // DataForm
             // 
             this.AcceptButton = this.btnAdd;
@@ -346,6 +354,7 @@
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DataForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.DataForm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DataForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
@@ -402,6 +411,7 @@
         private System.Windows.Forms.ToolTip toolTipForTyping;
         private System.Windows.Forms.GroupBox groupBoxQuickDic;
         private System.Windows.Forms.RichTextBox rtfQuickDic;
+        private System.Windows.Forms.TextBox textBox1;
 
     }
 }

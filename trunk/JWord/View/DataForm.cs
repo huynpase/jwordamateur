@@ -41,8 +41,17 @@ namespace JWord
             parent.NextWord();
         }
 
+        private void SetTxtThongKe()
+        {
+            Database db = new Database();
+            int numStudied = db.GetWordCount(GetDataType.Studied);
+            int numUnStudied = db.GetWordCount(GetDataType.Unstudied);
+            this.textBox1.Text = string.Format("Thống kê từ:\r\n- Số từ đã học: {0}\r\n- Số từ chưa học: {1}\r\n- Tổng số từ: {2}", numStudied, numUnStudied, numStudied + numUnStudied);
+        }
+
         private void DataForm_Load(object sender, EventArgs e)
         {
+
             kanjiUserControl.TextBoxKanji.TextChanged += new EventHandler(TextBoxKanjiInKanjiControl_TextChanged);
 
             dict = new DictFileManager();
@@ -50,6 +59,7 @@ namespace JWord
             dict.Init();
 
             RefreshData();
+            SetTxtThongKe();
             InitInputMethod();
         }
 
@@ -218,6 +228,7 @@ namespace JWord
                     RefreshToMainForm();
                 }
             }
+            SetTxtThongKe();
         }
 
         private void rdoViewUnStudied_CheckedChanged(object sender, EventArgs e)
@@ -305,6 +316,7 @@ namespace JWord
                 this.btnUpdate.Enabled = false;
                 RefreshToMainForm();
             }
+            SetTxtThongKe();
         }
 
         bool IsValidDataInput()
@@ -362,6 +374,7 @@ namespace JWord
                 this.SelectWord = null;
                 this.txtKanji.Focus();
                 RefreshToMainForm();
+                SetTxtThongKe();
             }
             else
             {
@@ -392,6 +405,8 @@ namespace JWord
                 {
                     word.IsStudied = e.Item.Checked;
                     db.UpdateWord(word);
+
+                    SetTxtThongKe();
                 }
             }
         }
@@ -404,6 +419,7 @@ namespace JWord
                 return;
             }
             SetUnStudied();
+            SetTxtThongKe();
             //System.Threading.Thread setThread = new System.Threading.Thread(SetUnStudied);
             //setThread.Priority = System.Threading.ThreadPriority.Highest;
             //setThread.Start();
@@ -417,6 +433,7 @@ namespace JWord
                 return;
             }
             SetStudied();
+            SetTxtThongKe();
             //System.Threading.Thread setThread = new System.Threading.Thread(SetStudied);
             //setThread.Priority = System.Threading.ThreadPriority.Highest;
             //setThread.Start();
@@ -477,6 +494,7 @@ namespace JWord
                     }
                 }
             }
+            SetTxtThongKe();
         }
 
         private void picTyping_Click(object sender, EventArgs e)

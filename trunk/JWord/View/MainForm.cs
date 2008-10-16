@@ -32,7 +32,7 @@ namespace JWord
 
         List<Word> arr = null;
         int numWord = 0;
-        int initAttribute = 0;
+        //int initAttribute = 0;
 
         SoundPlayer soundPlayer = new SoundPlayer();
         Dictionary<string, string> soundDict = new Dictionary<string, string>();
@@ -117,6 +117,8 @@ namespace JWord
 
         private void tmDelay_Tick(object sender, EventArgs e)
         {
+            if (this.frmConfig != null || this.frmData != null || this.frmKanjiLearing != null)
+                return;
             Delay.FadeHide(this);
             Delay.FadeShow(this);
         }
@@ -383,5 +385,10 @@ namespace JWord
         private AboutForm frmAbout = null;
         private bool isHideCauseMouseInter = false;
         private int maxHeight;
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            databaseToolStripMenuItem_Click(null, null);
+        }
     }
 }
