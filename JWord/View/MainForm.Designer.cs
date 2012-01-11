@@ -176,7 +176,7 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Masusoft JWord Amateur 2.1.6 © 2012 by Krông Masu";
+            this.notifyIcon1.Text = "Masusoft JWord Amateur 2.1.6 for Thảo © 2012 by Krông Masu";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
