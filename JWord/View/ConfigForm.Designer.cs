@@ -641,7 +641,7 @@
             this.picShowKanjiImg.BackColor = System.Drawing.Color.White;
             this.picShowKanjiImg.BackgroundImage = global::JWord.Properties.Resources.noimage;
             this.picShowKanjiImg.ErrorImage = null;
-            this.picShowKanjiImg.Image = global::JWord.Properties.Resources._4E7E;
+            this.picShowKanjiImg.Image = global::JWord.Properties.Resources._5B66;
             this.picShowKanjiImg.InitialImage = null;
             this.picShowKanjiImg.Location = new System.Drawing.Point(28, 0);
             this.picShowKanjiImg.Name = "picShowKanjiImg";

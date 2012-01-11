@@ -59,8 +59,8 @@
             this.lblKanji.Size = new System.Drawing.Size(139, 36);
             this.lblKanji.TabIndex = 0;
             this.lblKanji.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblKanji.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.lblKanji.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+            this.lblKanji.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.lblKanji.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // tmDelay
@@ -80,8 +80,8 @@
             this.lblKana.Size = new System.Drawing.Size(139, 48);
             this.lblKana.TabIndex = 0;
             this.lblKana.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblKana.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.lblKana.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+            this.lblKana.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.lblKana.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // lblMeaning
@@ -96,8 +96,8 @@
             this.lblMeaning.Size = new System.Drawing.Size(139, 37);
             this.lblMeaning.TabIndex = 0;
             this.lblMeaning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMeaning.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.lblMeaning.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+            this.lblMeaning.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             this.lblMeaning.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             // 
             // contextMenuStrip1
@@ -110,8 +110,8 @@
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(125, 114);
-            this.contextMenuStrip1.Opened += new System.EventHandler(this.contextMenuStrip1_Opened);
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
+            this.contextMenuStrip1.Opened += new System.EventHandler(this.contextMenuStrip1_Opened);
             // 
             // databaseToolStripMenuItem
             // 
@@ -176,7 +176,7 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "JWord Ama 2.1";
+            this.notifyIcon1.Text = "Masusoft JWord Amateur 2.1.6 © 2012 by Krông Masu";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
@@ -200,9 +200,9 @@
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Magenta;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             this.contextMenuStrip1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
