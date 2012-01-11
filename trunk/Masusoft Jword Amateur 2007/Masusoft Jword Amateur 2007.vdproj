@@ -6238,7 +6238,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Masusoft Jword Amateur 2008.msi"
+        "OutputFilename" = "8:Release\\Masusoft JWord Amateur 2012.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -6285,7 +6285,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:2.0.50727"
+                "FrameworkVersion" = "8:2.0.50727 "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:.\\dotnetfx.exe"
                 }
@@ -26989,7 +26989,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:JWord Amateur 2012"
         "ProductCode" = "8:{12E16DAA-C6B2-4E6C-BF2B-9E4D8F154D96}"
-        "PackageCode" = "8:{17A31883-146E-4599-8572-445E6D085276}"
+        "PackageCode" = "8:{965F7710-6855-4A8D-91B3-1697C041CDE8}"
         "UpgradeCode" = "8:{8E7435AE-BFDF-4C67-A789-E136B9286CB0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
