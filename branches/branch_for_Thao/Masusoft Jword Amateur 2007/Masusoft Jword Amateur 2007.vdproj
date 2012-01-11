@@ -6238,7 +6238,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Masusoft JWord Amateur 2012.msi"
+        "OutputFilename" = "8:Release\\Masusoft JWord Amateur 2012 for Thao.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -6285,7 +6285,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:2.0.50727 "
+                "FrameworkVersion" = "8:2.0.50727  "
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:.\\dotnetfx.exe"
                 }
@@ -26861,7 +26861,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_3186474195434849BE60E09761C63DBB"
                     {
-                    "Name" = "8:JWord Amateur 2012"
+                    "Name" = "8:Masusoft"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -26987,9 +26987,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:JWord Amateur 2012"
+        "ProductName" = "8:JWord Amateur 2012 for Thao"
         "ProductCode" = "8:{12E16DAA-C6B2-4E6C-BF2B-9E4D8F154D96}"
-        "PackageCode" = "8:{44AD59D4-07F5-4613-81D7-722A167B5986}"
+        "PackageCode" = "8:{3C59AC36-C66E-473C-A4CB-720568915EA5}"
         "UpgradeCode" = "8:{8E7435AE-BFDF-4C67-A789-E136B9286CB0}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -27000,7 +27000,7 @@
         "Manufacturer" = "8:Masusoft"
         "ARPHELPTELEPHONE" = "8:0938.666.123"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Masusoft JWord Amateur 2012"
+        "Title" = "8:Masusoft JWord Amateur 2012 for Thao"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Masusoft"
         "Keywords" = "8:"
@@ -27111,7 +27111,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0C842C1E279149E79AB653D4E60D12AE"
             {
-            "Name" = "8:Masusoft JWord Amateur 2012"
+            "Name" = "8:Masusoft JWord Amateur 2012 for Thao"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -27125,7 +27125,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_890A33C2E353404DBABCBA13BDD8C746"
             {
-            "Name" = "8:Masusoft JWord Amateur 2012"
+            "Name" = "8:Masusoft JWord Amateur 2012 for Thao"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -27139,7 +27139,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B368CD14F9D543C694776CDB4315F201"
             {
-            "Name" = "8:Masusoft JWord Amateur 2012"
+            "Name" = "8:Masusoft JWord Amateur 2012 for Thao"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
